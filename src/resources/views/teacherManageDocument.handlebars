@@ -1,0 +1,736 @@
+
+<style type="text/css">
+		.checked {
+			color: orange;
+		}
+</style>
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top" style="display: flex; justify-content: space-between;" >
+    <a class="navbar-brand mr-1" href="/teacher/home"><h4>HỆ THỐNG HỌC TRỰC TUYẾN</h4></a>
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#" style="text-align: left;">
+      <i class="fas fa-bars"></i>
+    </button>
+    {{!-- <button style="margin-left: -650px;"class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button> --}}
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <h5 style="color: aliceblue;">Giáo viên {{userInfo.name}}</h5>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          
+          <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/changePassword">Đổi mật khẩu</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/admin/logout" data-toggle="modal" data-target="#logoutModal">Đăng xuất</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Mục lục</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Quản lý học tập</span>
+        </a>
+        <div style="width: 100%" class="dropdown-menu" aria-labelledby="pagesDropdown">
+                  <a class="dropdown-item" href="/teacher/manage-courses">Quản lý khóa học giảng dạy</a>
+                 
+        </div>
+      </li>          
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Cài đặt</span>
+        </a>
+        <div style=" width:100%" class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="/teacher/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/changePassword">Đổi mật khẩu</a>
+          <a class="dropdown-item" href="/teacher/contact">Thông tin liên hệ</a>
+        </div>
+      </li>  
+      
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/teacher/home">Màn hình chính</a>
+          </li>
+          <li class="breadcrumb-item">
+             Quản lý tài liệu khóa học
+          </li>
+        </ol>
+        <div style="padding:10px" class="row">
+              <div class="col-md-2">
+ 
+                <a href="/teacher/manage-courses" class="btn btn-outline-secondary btn-block mb-3" role="button" aria-pressed="true">Quay lại</a>
+              </div>
+              <div class="col-md-2">
+ 
+                <a id="btnQuestion" class="btn btn-outline-success btn-block mb-3" role="button" aria-pressed="true">Thêm tài liệu</a>
+              </div>
+
+              
+              
+        
+        <div class="col-md-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title" style="color: blue;">Danh sách tài liệu trong khóa học {{classInfo.className}}</h3>
+        <!-- Icon Cards-->
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã tài liệu</th>
+              <th>Tên tài liệu</th>
+              
+              <th>Link tài liệu</th>
+              <th>Chi tiết</th>
+              <th>Người thêm</th>
+              <th>Tùy chỉnh</th>
+            </tr>
+          </thead>
+          <tbody id="phumaTakeda">
+            {{#each documentInfo}}
+                <tr id={{this.id}} name='nameTr'>
+                  <th>{{sum @index 1}}</th>
+                  <td id="blabla">{{this.id}}</td>
+                  <th>{{this.documentName}}</th>
+                  <td>{{this.documentLink}}</td>
+                  
+                  
+                  <td>
+                    <a href="{{this.documentLink}}"><input name='view' id="detailInfo" type="button" class="btn btn-info" value="Xem chi tiết"></input></a>
+                  </td>
+                  
+                  <td>Giáo viên</td>
+                  <td style="display: flex;">
+                    <input name='edit' id="btnEditQuestion" type="button" class="btn btn-warning" value="Sửa tài liệu"></input>&nbsp;
+                    <input name='delete' id="btnDeleteQuestion" type="button" class="btn btn-danger" value="Hủy bỏ"></input>
+
+                  </td>
+                </tr>
+            {{/each}}
+
+          </tbody>
+        </table>        
+                      </div>
+            </div>
+          </div>
+          </div>
+      </div>
+      <!-- /.container-fluid -->
+        
+
+    </div>
+</div>
+</div>
+        <!-- Icon Cards-->
+        
+      <!-- /.container-fluid -->
+      
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <!--Logout model-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" >
+          <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+            <span aria-hidden="true" >×</span>
+          </button>
+        </div>
+        <div class="modal-body"><h5>Chọn đăng xuất để kết thúc phiên làm việc</h5></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
+          <a class="btn btn-outline-danger" href="http://localhost:3000/teacher/logout">Đăng Xuất</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Confirm delete Document-->
+<div id="modalDeleteQuestion" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bản có chắc chắn muốn hủy bỏ tài liệu này?</p>
+        <p id="hideIdQuestionSecond" style="display: none;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btnSubmitDelete">Hủy bỏ tài liệu</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal for Add question-->
+<div id="modalQuestion" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title">Thêm tài liệu vào khóa học</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+        
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Tên tài liệu</label>
+              <textarea class="form-control" id="txaQuestion" rows="1" placeholder="Nhập tên tài liệu"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Link tài liệu</label>
+            <textarea class="form-control" id="txaOptionA" rows="1" placeholder="Thêm Link tài liệu hoặc upload"></textarea>
+          </div>
+          <div class="form-group">
+                <label for="exampleFormControlTextarea1">Hoặc upload tài liệu</label>
+               <input class="form-control" type="file" id="myfile" name="myFile" multiple>
+               <input type="text" style="display: none;" id="assignLink" name="assignLink">
+          </div>
+          <div class="form-group">
+                 <input onclick="send()" id="btnupload" class="btn btn-primary" type="button" value="Upload">
+            </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Nguồn tài liệu</label>
+            <textarea class="form-control" id="documentAuthor" rows="1" placeholder="Nguồn tài liệu / tác giả"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="btnSubmit">Thêm tài liệu</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+<!--Modal for detail question-->
+<div id="modalDetailQuestion" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+        
+      </div>
+      <div class="modal-body">
+          <h5 class="modal-title">Chi tiết câu hỏi</h5>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Câu hỏi</label>
+              <textarea class="form-control" id="txaQuestionh" rows="1" placeholder="Nội dung câu hỏi"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Đáp án A</label>
+            <textarea class="form-control" id="txaOptionAh" rows="1" placeholder="Đáp án A"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Đáp án B</label>
+            <textarea class="form-control" id="txaOptionBh" rows="1" placeholder="Đáp án B"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Đáp án C</label>
+            <textarea class="form-control" id="txaOptionCh" rows="1" placeholder="Đáp án C" ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Đáp án D</label>
+            <textarea class="form-control" id="txaOptionDh" rows="1" placeholder="Đáp án D"></textarea>
+          </div>
+          <hr>
+          
+          <div class="row">
+                <div class="radio col-sm-3">   
+                    <label><input type="radio" id="rdOptionAh"  name="optradio">Đáp án A</label>
+                </div>
+                <div class="radio col-sm-3">
+                    <label><input type="radio" id="rdOptionBh" name="optradio">Đáp án B</label>
+                </div>
+                <div class="radio col-sm-3">
+                    <label><input type="radio" id="rdOptionCh" name="optradio">Đáp án C</label>
+                </div>
+                <div class="radio col-sm-3">
+                    <label><input type="radio" id="rdOptionDh" name="optradio">Đáp án D</label>
+                </div>
+          </div>
+          
+      </div>
+
+    </div>
+  </div>
+</div>
+<!---->
+
+<!--Modal for Edit question-->
+<div id="modalEditQuestion" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        <p id="hideIdQuestionSecondEdit" style="display: none;"></p>
+          <h5 class="modal-title">Chỉnh sửa tài liệu</h5>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Tên tài liệu</label>
+              <textarea class="form-control" id="txaQuestionn" rows="1" placeholder="Nhập tên tài liệu"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Link tài liệu</label>
+            <textarea class="form-control" id="txaOptionAn" rows="1" placeholder="Thêm Link tài liệu hoặc upload"></textarea>
+          </div>
+          <div class="form-group">
+                <label for="exampleFormControlTextarea1">Hoặc upload tài liệu</label>
+               <input class="form-control" type="file" id="myfile2" name="myFile" multiple>
+               <input type="text" style="display: none;" id="assignLinkn" name="assignLink" >
+          </div>
+          <div class="form-group">
+                 <input onclick="send2()" id="btnupload" class="btn btn-primary" type="button" value="Upload">
+            </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Nguồn tài liệu</label>
+            <textarea class="form-control" id="documentAuthorn" rows="1" placeholder="Nguồn tài liệu / tác giả"></textarea>
+          </div>
+            <p id="hideIdQuestion" style="display: none;"></p>
+          <hr>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="btnSubmitEditQuestion">Xác nhận thay đổi</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+
+<textarea style="display: none;" class="form-control" id="clgt" rows="1" placeholder="Đáp án B">{{classId}}</textarea>
+<!--Use for append-->
+<div class="hide" id="template" style='display:none'>
+    <tr id={{this.id}} >
+        <td id="blabla">{{this.id}}</td>
+        <td>{{this.questionContent}}</td>
+        
+        
+        <td>
+          <input name='view' id="detailInfo" type="button" class="btn btn-info" value="Xem chi tiết"></input>
+        </td>
+        
+        
+        <td style="display: flex;">
+          <input name='edit' id="btnEditQuestion" type="button" class="btn btn-warning" value="Sửa câu hỏi"></input>&nbsp;
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#disable-course-modal">Xóa</button>
+
+        </td>
+    </tr>
+  </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var send = function(){
+        let myfile = document.getElementById('myfile').files;
+        let formData = new FormData();
+        for(let i = 0 ; i<myfile.length ; i++){
+        formData.append('myfile',myfile[i]);
+        }
+        let contentType = {
+        headers :{
+            "content-type":"multipart/form-data"
+        }
+        }
+        let link = '';
+        axios.post('http://localhost:3000/admin/profile/uploadPictureProfile/viewDocument',formData,contentType)
+        .then(function (response) {
+            link = response.data.filename;
+            console.log(link);
+            console.log('Xử lý upload');
+            $('#assignLink').val(link);
+        })
+        .catch(function (error) {
+            console.log(error);
+    });
+  }
+  
+</script> 
+<script>
+  var send2 = function(){
+        let myfile = document.getElementById('myfile2').files;
+        let formData = new FormData();
+        for(let i = 0 ; i<myfile.length ; i++){
+          formData.append('myfile',myfile[i]);
+        }
+        let contentType = {
+          headers :{
+              "content-type":"multipart/form-data"
+          }
+        }
+        let link = '';
+        axios.post('http://localhost:3000/admin/profile/uploadPictureProfile/viewDocument',formData,contentType)
+        .then(function (response) {
+            link = response.data.filename;
+            console.log(link);
+            console.log('Xử lý upload');
+            console.log(link);
+            $('#assignLinkn').val(link);
+        })
+        .catch(function (error) {
+            console.log(error);
+    });
+  }
+</script>
+<!--Use for append-->
+<!---->
+<script type="text/javascript">
+    /*
+        $('#btnEditQuestion').click(function(){
+        $('#modalEditQuestion').modal();
+        })
+    */
+    
+    //  Mô hình thêm câu hỏi
+    $('#btnQuestion').click(function(){
+        $('#modalQuestion').modal();
+    })
+    // Mô hình khi nhập dữ liệu vào để thêm tài liệu
+    $('#btnSubmit').click(function(){
+      let documentName = $('#txaQuestion').val().trim();
+      console.log(documentName);
+      let documentLink = $('#txaOptionA').val().trim();
+      let assignLink = $('#assignLink').val().trim();
+      assignLink = `http://localhost:3000/${assignLink}`;
+      let documentAuthor= $('#documentAuthorn').val().trim();
+      //Validate du lieu duoc nhap vao
+      if(documentName.length==0){
+        alert('Bạn chưa nhập đầy đủ tên tài liệu');
+        return;
+      }
+      console.log('Thoogn tin');
+      console.log(documentLink);
+      console.log(assignLink);
+      if(documentLink.length==0&&assignLink.length==0){
+        alert('Bạn vui lòng upload tài liệu hoặc đặt đường dẫn cho tài liệu');
+        return;
+      }
+      //This is id of lesson 
+      let classId = $('#clgt').html();
+     
+      $.ajax({
+        url:`http://localhost:3000/teacher/manage-document/create/${classId}`,
+        type:'post',
+        data:{
+            documentName:documentName,
+            documentLink:documentLink,
+            assignLink:assignLink,
+            documentAuthor:documentAuthor
+        },
+        success:function(data){
+            
+                $('#txaQuestion').val('');
+                $('#txaOptionA').val('');
+                $('#assignLink').val('');
+                $('#documentAuthor').val('');
+                $('#phumaTakeda').empty();
+               let infoData = data.bla;
+                for(let j = 0 ; j<infoData.length; j++){
+                    let stt = j+1;
+                    let id = infoData[j].id;
+                    let documentName = infoData[j].documentName;
+                    let documentLink = infoData[j].documentLink;
+                    console.log(documentLink);
+                    let documentAuthor = infoData[j].documentAuthor;
+                    let stringInfo ="";
+                    stringInfo += `<tr id='${id}' name='nameTr'>`;
+                    stringInfo += `<th >${stt}</th>`;
+                    stringInfo += `<td id="blabla">${id}</td><td>${documentName}</td><td>${documentLink}</td>`;
+                    stringInfo += "<td>";
+                    stringInfo += `<a href='${documentLink}'><input name='view' id="detailInfo" type="button" class="btn btn-info" value="Xem chi tiết"></input></a>`;
+                    stringInfo += "</td>";
+                    stringInfo += "<td>Giáo viên</td>";
+                    stringInfo += '<td style="display: flex;">';
+                    stringInfo += ' <input name="edit" id="btnEditQuestion" type="button" class="btn btn-warning" value="Sửa tài liệu"></input>&nbsp;';
+                    stringInfo += '<input name="delete" id="btnDeleteQuestion" type="button" class="btn btn-danger" value="Hủy bỏ"></input>';
+                    stringInfo += "</td>";
+                    stringInfo +="</tr>";
+                    $('#phumaTakeda').append(stringInfo);
+                }
+        }
+      })
+      alert('Tải lại trang để xem khóa học thêm mới');
+      $('#modalQuestion').modal();
+    })
+  
+    /*
+          //Mô hình sửa câu hỏi
+        $('input[name=edit]').click(function(){
+        //Lấy được id của câu hỏi
+          var bid = this.id;
+          var questionId = $(this).closest('tr').attr('id');
+        //Lấy dữ liệu từ id câu hỏi
+          $.ajax({
+            url:`http://localhost:3000/admin/manage-lessonquestion/detailQuestion/${questionId}`,
+            type:'get',
+            success : function(data){
+                let questionDetailInfo = data.bla;
+                $('#txaQuestionn').val(questionDetailInfo.questionContent);
+                $('#txaOptionAn').val(questionDetailInfo.optionA);
+                $('#txaOptionBn').val(questionDetailInfo.optionB);
+                $('#txaOptionCn').val(questionDetailInfo.optionC);
+                $('#txaOptionDn').val(questionDetailInfo.optionD);
+
+                switch(questionDetailInfo.rightAnswer){
+                  case 'A':
+                    $('#rdOptionAn').prop('checked',true);
+                    break;
+                  case 'B':
+                    $('#rdOptionBn').prop('checked',true);
+                  case 'C':
+                    $('#rdOptionCn').prop('checked',true);
+                  case 'D':
+                    $('#rdOptionDn').prop('checked',true);
+                }
+                //gài id câu hỏi vào 1 giá trị trong modal
+                $('#hideIdQuestion').val(questionDetailInfo.id);
+            }
+          })
+          
+          $('#modalEditQuestion').modal();
+
+
+        })
+    */
+     //Mô hình sửa câu hỏi
+        $('#phumaTakeda').click(function(event){
+        //Lấy được id của câu hỏi
+          if(event.target.name=='edit'){
+                var documentId = $(event.target).closest('tr').attr('id');
+                console.log(documentId);
+              //Lấy dữ liệu từ id câu hỏi
+                $.ajax({
+                  url:`http://localhost:3000/teacher/manage-document/detail/${documentId}`,
+                  type:'get',
+                  success : function(data){
+                      let documentInfo = data.bla;
+                      $('#txaQuestionn').val(documentInfo.documentName);
+                      $('#txaOptionAn').val(documentInfo.documentLink);
+                      $('#documentAuthorn').val(documentInfo.documentAuthor);
+
+                      
+                      //gài id câu hỏi vào 1 giá trị trong modal
+                      $('#hideIdQuestionSecondEdit').val(documentInfo.id);
+                  }
+                })
+                $('#modalEditQuestion').modal();
+          }
+
+          
+          if(event.target.name=='delete'){
+            /* 
+                var questionId = $(event.target).closest('tr').attr('id');
+                console.log(questionId);
+              //Lấy dữ liệu từ id câu hỏi
+                $.ajax({
+                  url:`http://localhost:3000/admin/manage-lessonquestion/delete/${questionId}`,
+                  type:'post',
+                  success : function(data){}
+                      
+                })
+            */
+                var documentId = $(event.target).closest('tr').attr('id');
+                $('#hideIdQuestionSecond').val(documentId);
+                $('#modalDeleteQuestion').modal();
+          }
+        })
+        /*
+        
+        */
+    $('#btnSubmitDelete').click(function(){
+      
+        let documentId = $('#hideIdQuestionSecond').val();
+        
+        
+        let lessonId =  $('#clgt').html();
+        console.log(lessonId);
+        $.ajax({
+            url:`http://localhost:3000/teacher/manage-document/delete/${documentId}`,
+            type:'post',
+            data:{
+              classId:lessonId
+            },
+            success : function(data)
+            {
+
+               $('#phumaTakeda').empty();
+               let infoData = data.bla;
+                for(let j = 0 ; j<infoData.length; j++){
+                    let stt = j+1;
+                    let id = infoData[j].id;
+                    let documentName = infoData[j].documentName;
+                    let documentLink = infoData[j].documentLink;
+                    console.log(documentLink);
+                    let documentAuthor = infoData[j].documentAuthor;
+                    let stringInfo ="";
+                    stringInfo += `<tr id='${id}' name='nameTr'>`;
+                    stringInfo += `<th >${stt}</th>`;
+                    stringInfo += `<td id="blabla">${id}</td><td>${documentName}</td><td>${documentLink}</td>`;
+                    stringInfo += "<td>";
+                    stringInfo += `<a href='${documentLink}'><input name='view' id="detailInfo" type="button" class="btn btn-info" value="Xem chi tiết"></input></a>`;
+                    stringInfo += "</td>";
+                    stringInfo += "<td>Giáo viên</td>";
+                    stringInfo += '<td style="display: flex;">';
+                    stringInfo += ' <input name="edit" id="btnEditQuestion" type="button" class="btn btn-warning" value="Sửa tài liệu"></input>&nbsp;';
+                    stringInfo += '<input name="delete" id="btnDeleteQuestion" type="button" class="btn btn-danger" value="Hủy bỏ"></input>';
+                    stringInfo += "</td>";
+                    stringInfo +="</tr>";
+                    $('#phumaTakeda').append(stringInfo);
+                }
+
+            }
+        });
+          
+          $('#modalDeleteQuestion').modal('hide');
+           alert('Bạn đã xóa tài liệu thành công , Vui lòng load lại trang để refresh');
+    })
+    $('#btnSubmitEditQuestion').click(function(){
+      let documentName = $('#txaQuestionn').val().trim();
+      console.log(documentName);
+      let documentLink = $('#txaOptionAn').val().trim();
+      //console.log('thông tin document link' +documentLink);
+      let documentId = $('#hideIdQuestionSecondEdit').val().trim();
+      console.log('thông tin documentId' +documentId);
+      let assignLink = $('#assignLinkn').val();
+      console.log('Thông tin assignLink');
+      console.log(assignLink);
+      assignLink = `http://localhost:3000/${assignLink}`;
+      
+      // console.log('thông tin assign link' +assignLink);
+      let documentAuthor= $('#documentAuthorn').val().trim();
+      //Validate du lieu duoc nhap vao
+      if(documentName.length==0){
+        console.log("blabla");
+        alert('Bạn chưa nhập đầy đủ tên tài liệu');
+        return;
+      }
+      if(documentLink.length==0&&assignLink.length==0){
+        console.log('chạy vào đây');
+        alert('Bạn vui lòng upload tài liệu hoặc đặt đường dẫn cho tài liệu');
+        return;
+      }
+      //This is id of lesson 
+      let classId = $('#clgt').html();
+     
+      $.ajax({
+          url:`http://localhost:3000/teacher/manage-document/edit/${classId}`,
+          type:'post',
+          data:{
+              documentId:documentId,
+              documentName:documentName,
+              documentLink:documentLink,
+              assignLink:assignLink,
+              documentAuthor:documentAuthor
+          },
+          success:function(data){
+            $('#phumaTakeda').empty();
+            let infoData = data.bla;
+            for(let j = 0 ; j<infoData.length; j++){
+                let stt = j+1;
+                let id = infoData[j].id;
+                let documentName = infoData[j].documentName;
+                let documentLink = infoData[j].documentLink;
+                console.log(documentLink);
+                let documentAuthor = infoData[j].documentAuthor;
+                let stringInfo ="";
+                stringInfo += `<tr id='${id}' name='nameTr'>`;
+                stringInfo += `<th >${stt}</th>`;
+                stringInfo += `<td id="blabla">${id}</td><td>${documentName}</td><td>${documentLink}</td>`;
+                stringInfo += "<td>";
+                stringInfo += `<a href='${documentLink}'><input name='view' id="detailInfo" type="button" class="btn btn-info" value="Xem chi tiết"></input></a>`;
+                stringInfo += "</td>";
+                stringInfo += "<td>Giáo viên</td>";
+                stringInfo += '<td style="display: flex;">';
+                stringInfo += ' <input name="edit" id="btnEditQuestion" type="button" class="btn btn-warning" value="Sửa tài liệu"></input>&nbsp;';
+                stringInfo += '<input name="delete" id="btnDeleteQuestion" type="button" class="btn btn-danger" value="Hủy bỏ"></input>';
+                stringInfo += "</td>";
+                stringInfo +="</tr>";
+                $('#phumaTakeda').append(stringInfo);
+            }
+
+
+          }
+      })
+            $('#modalEditQuestion').modal('hide');
+             alert('Ban đã sửa tài liệu thành công');
+    })
+
+</script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="http://localhost:3000/js/Chart.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap core JavaScript-->
+<script src="http://localhost:3000/vendor/jquery/jquery.min.js"></script>
+<script src="http://localhost:3000/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+<script src="http://localhost:3000/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+<script src="http://localhost:3000/vendor/chart.js/Chart.min.js"></script>
+<script src="http://localhost:3000/vendor/datatables/jquery.dataTables.js"></script>
+<script src="http://localhost:3000/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+<script src="http://localhost:3000/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+<script src="http://localhost:3000/js/demo/datatables-demo.js"></script>
+<script src="http://localhost:3000/js/demo/chart-area-demo.js"></script>

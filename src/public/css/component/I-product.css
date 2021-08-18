@@ -1,0 +1,201 @@
+.I-product{
+	width: 100%;
+	padding: 50px 0;
+}
+.I-product .product-wrapper{
+
+}
+.I-product .product-wrapper .row{
+	border-bottom: 1px solid #ccc;
+}
+.I-product .product-wrapper .product-header{
+	width: 100%;
+	height: 30px;
+	margin: 20px 0;
+}
+.I-product .product-body{
+	width: 100%;
+}
+.I-product .product-body .product-review{
+	
+}
+.I-product .product-body .product-review iframe{
+	width: 100%;
+	min-height: 400px;
+	margin: 30px 0;
+}
+.I-product .product-body .product-review .product-link{
+	overflow: hidden;
+	border-top: 1px solid #ccc;
+}
+.I-product .product-body .product-review .product-link .product-link-item{
+	width: 20%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	color: #444;
+	font-weight: bold;
+}
+.I-product .product-body .product-price{
+	border-bottom: 1px solid #ccc;
+	padding: 0 0 10px 0;
+}
+.I-product .product-body .product-price .price-title{
+	color: #2a70b8;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0 0 15px;
+	text-align: center;
+	font-weight: bold;
+}
+.I-product .product-body .product-price .price-cast{
+	margin: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+}
+.I-product .product-body .product-price .price-cast del{
+	color: #747474;
+	margin: 0 20px;
+}
+.I-product .product-body .product-price .price-cast .price-currency{
+	color: #ff7e00
+}
+.I-product .product-body .product-price .product-trial{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-product .product-body .product-price .product-trial a{
+	margin: 0 5px;
+}
+.I-product .product-body .product-price .product-trial a:hover{
+	color: #fff !important;
+}
+.I-product .product-body .product-target{
+	padding: 5px 0;
+}
+.course-info-stitle{
+	color: #2a70b8;
+	margin: 10px 0 -10px !important;
+}
+.course-info-list {
+    list-style: outside none square;
+    margin: 10px 0;
+    padding-left: 1.5em;
+}
+
+.I-product .product-body .product-description{
+	padding: 50px 0;
+}
+.I-product .product-body .product-stitle {
+    border-bottom: 1px solid #2a70b8;
+    color: #505050;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 20px;
+}
+.I-product .product-body .product-stitle span {
+    background: #2a70b8 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 15px;
+}
+.I-product .product-body .product-course{
+	width: 100%;
+	padding: 30px 0;
+}
+.I-product .product-body .product-course .product-course-component{
+	width: 100%;
+	margin: 0 0 20px 0;
+	height: 50px;
+	overflow: hidden;
+}
+.I-product .product-body .product-course .product-course-component.is-open{
+	height: auto;
+}
+.I-product .product-body .product-course .product-course-component .product-course-title{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color: #f1f1f1;
+	padding: 0 30px;
+	display: flex;
+	align-items: center;
+	color: #444;
+	font-weight: bold;
+	cursor: pointer;
+}
+.I-product .product-body .product-course .product-course-component .product-course-title .course_sub{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	font-size: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-product .product-body .product-course .product-course-component .product-course-body{
+	padding: 10px 0;
+}
+.I-product .product-body .product-course .product-course-component .product-course-item{
+	width: 100%;
+	padding: 10px 0 10px 50px;
+	color: #444;
+	display: block;
+	border-bottom: 1px solid #ccc;
+}
+.I-product .product-body .product-course .product-course-component .product-course-item h5{
+	margin: 0 0 10px 0;
+}
+.I-product .product-body .product-course .product-course-component .product-course-item:hover{
+	background-color: #f3f2f2
+}
+.I-product .product-body .product-relate{
+	padding: 50px 0;
+}
+.I-product .product-body .product-relate h3{
+	margin:  0 0 30px 0;
+}
+.I-product .product-body .product-relate .product-relate-item{
+	width: 100%;
+	box-shadow: 0px 3px 15px #2c479240;
+	padding: 5px;
+	overflow: hidden;
+	margin: 0 0 10px 0;
+}
+.I-product .product-body .product-relate .product-relate-item .item-image{
+	float: left;
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-product .product-body .product-relate .product-relate-item .item-image img{
+	width: 100%;
+}
+.I-product .product-body .product-relate .product-relate-item .item-content{
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+}
+.I-product .product-body .product-relate .product-relate-item .item-content a{
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+
+
+
+
+
+
+
+
+
+

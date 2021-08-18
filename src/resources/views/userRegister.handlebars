@@ -1,0 +1,166 @@
+
+<header>
+			<div class="I-header">
+				<div class="wrapper">
+					<div class="header-wrapper">
+						<div class="header-logo">
+							<img src="http://localhost:3000/img/bg-log.png">
+							<div class="logo align-justify-center">
+								<img src="http://localhost:3000/logoelearning.png">
+							</div>
+						</div>
+						<div class="header-search align-justify-center lp fp">
+							<div class="search-wrapper">
+								<input type="" name="" placeholder="Tìm kiếm khóa học">
+								<a href="" class="align-justify-center"><i class="fas fa-search"></i></a>
+							</div>
+						</div>
+						<div class="header-action align-justify-center">
+							<a href="http://localhost:3000" class="btns btns-warning action-register lp">Trang giới thiệu</a>&nbsp;&nbsp;&nbsp;
+							<a href="/user/login" class="btns m-r-20 lp">Đăng nhập</a>
+							<a href="/user/register" class="btns btns-primary action-register lp">Đăng kí</a>
+							<div href="" class="btns sp open-menu"><i class="fas fa-bars"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="I-login">
+				<div class="wrapper">
+					<div class="login-wrapper">
+						<h3 class="m-b-20">Đăng kí tài khoản cho bạn</h3>
+
+						<p>Học tập và giao lưu với hàng triệu học viên </p>
+						<h5 class="m-b-30" >Một lần và mãi mãi</h5>
+						<hr>
+						<form action="/user/register" method="POST">
+              <label for="email" style="display: block; text-align: left;"><b>Email</b></label>
+							<input type="email" name="email" placeholder="Email" pattern="[@-.-com]" minlength="3" required>
+							
+              <label for="email" style="display: block; text-align: left;"><b>Tên của bạn</b></label>
+              <input type="text" name="name" placeholder="Tên của bạn"  minlength="3" required>
+
+              <label for="psw" style="display: block; text-align: left;"><b>Mật khẩu</b></label>
+              <input type="password" name="psw" placeholder="Mật khẩu" minlength="6" required>
+						
+              <label for="psw-repeat" style="display: block; text-align: left;"><b>Xác nhận mật khẩu</b></label>
+               <input type="password" placeholder="Xác nhận mật khẩu" name="pswrepeat" id="psw-repeat" minlength="6" required>
+
+              
+              
+
+               <p>Bởi việc xác nhận đăng ký , bạn đồng ý tuân thủ <a href="#">Giao thức & Nội quy hệ thống</a>.</p>
+            	<button type="submit">Đăng kí</button>
+						</form>
+            
+					</div>
+					{{#if warning}}
+						<script>alert('Bạn chưa điền mẫu đăng kí hợp lệ hoặc email đã tồn tại trong hệ thống')</script>
+					{{/if}}
+					{{#if warning2}}
+						<script>alert('Bạn vui lòng đăng nhập tài khoản đúng với vai trò')</script>
+					{{/if}}
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+		    <div class="I-footer">
+		        <div class="footer_contact">
+		            <div class="wrapper">
+		                <div class="row">
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <a href="" class="full_logo">
+		                            <div class="header-logo">
+										<img src="http://localhost:3000/logoelearning.png">
+										
+									</div>
+		                        </a>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Về chúng tôi</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span>Admin : Trần Minh Sơn</span>
+		                                <span><i class="fas fa-phone"></i> <a href="tel:0" class="telephone">(+84) 0385853267</a></span>
+		                                <span><i class="fas fa-envelope"></i> <a href="mailto:" class="time">Email : anhnangphuongmai98@gmail.com</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Danh mục</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span><a href="">*</a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Theo dõi chúng tôi:</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <div class="social_wrapper">
+		                                    <a class="social-item" href="<?php echo $info->fb ?>"><i class="fab fa-facebook-f"></i></a>
+		                                    <a class="social-item" href="<?php echo $info->linkin ?>"><i class="fab fa-linkedin-in"></i></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="copyright">
+		            <div class="wrapper">
+		                <div class="pull-left">
+		                    Copyright © 2021. All rights reserved. 
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</footer>
+		<div class="menu sp">
+			<div class="menu-wrapper">
+				<ul class="main_navigation">
+					<li><a href="">Giới thiệu</a></li>
+					<li><a href="">Giáo viên</a></li>
+					<li><a href="">Danh mục</a></li>
+					<li class="sub_navigation">
+						<a href="">Thư viện</a>
+						<div class="sub_nav_wrapper">
+							<ul>
+								<li><a href="">Sách A</a></li>
+								<li><a href="">Sách B</a></li>
+								<li><a href="">Sách C</a></li>
+								<li><a href="">Sách D</a></li>
+								<li><a href="">Sách R</a></li>
+								<li><a href="">Sách T</a></li>
+							</ul>
+						</div>
+						<div class="open_sub">
+							<i class="fas fa-sort-down"></i>
+						</div>
+					</li>
+					{{!-- <li><a href="">Phòng thi</a></li> --}}
+					<li><a href="" class="login-button">Đăng nhập</a></li>
+					<li><a href="" class="login-button">Đăng kí</a></li>
+				</ul>
+			</div>
+		</div>
+
+		{{#if warning}}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Thất bại!</strong> Bạn chưa có tài khoản hoặc tài khoản đã bị chặn . Liên hệ Admin để biết thêm thông tin.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="text-align: right;">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		{{/if}}

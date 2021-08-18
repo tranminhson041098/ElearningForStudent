@@ -1,0 +1,570 @@
+<style>
+    body{
+        font-size: 20px;
+        font-family: monospace;
+    }
+
+    #container{
+        margin : 20px auto;
+        background-color: white;
+        height: 300px;
+        width : 700px;
+        border-radius: 5px;
+        box-shadow: 0px 5px 15px 0px;
+        position: relative;
+    }
+    #start{
+        font-size: 1.5em;
+        font-weight: bolder;
+        word-break: break-all;
+        width:100px;
+        height:150px;
+        border : 2px solid lightgrey;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        left:300px;
+        top:50px;
+        color : lightgrey;
+    }
+    #start:hover{
+        border: 3px solid lightseagreen;
+        color : lightseagreen;
+    }
+
+    #qImg{
+        width : 200px;
+        height : 200px;
+        position: absolute;
+        left : 0px;
+        top : 0px;
+    }
+    #qImg img{
+        width : 200px;
+        height : 200px;
+        border-top-left-radius: 5px;
+    }
+
+    #question{
+        width:500px;
+        height : 125px;
+        position: absolute;
+        right:0;
+        top:0;
+    }
+    #question p{
+        margin : 0;
+        padding : 15px;
+        font-size: 1.25em;
+    }
+
+    #choices{
+        width : 480px;
+        position: absolute;
+        right : 0;
+        top : 125px;
+        padding : 10px
+    }
+    .choice{
+        display: inline-block;
+        width : 135px;
+        text-align: center;
+        border : 1px solid grey;
+        border-radius: 5px;
+        cursor: pointer;
+        padding : 5px;
+    }
+    .choice:hover{
+        border : 2px solid grey;
+        font-weight: bold;
+    }
+
+    #timer{
+		/*
+		
+        position: absolute;
+		*/
+        height : 100px;
+        width : 200px;
+        bottom : 0px;
+        text-align: center;
+    }
+    #counter{
+        font-size: 3em;
+    }
+    #btimeGauge{
+        width : 150px;
+        height : 10px;
+        border-radius: 10px;
+        background-color: lightgray;
+        margin-left : 25px;
+    }
+    #timeGauge{
+        height : 10px;
+        border-radius: 10px;
+        background-color: mediumseagreen;
+        margin-top : -10px;
+        margin-left : 25px;
+    }
+    #progress{
+        width : 500px;
+        position: absolute;
+        bottom : 0px;
+        right : 0px;
+        padding:5px;
+        text-align: right;
+    }
+    .prog{
+        width : 25px;
+        height : 25px;
+        border: 1px solid #000;
+        display: inline-block;
+        border-radius: 50%;
+        margin-left : 5px;
+        margin-right : 5px;
+    }
+    #scoreContainer{
+        margin : 10px auto;
+        background-color: white;
+        opacity: 0.8;
+        height: 300px;
+        width : 700px;
+        border-radius: 5px;
+        box-shadow: 0px 5px 15px 0px;
+        position: relative;
+        display: none;
+    }
+    #scoreContainer img{
+        position: absolute;
+        top:100px;
+        left:325px;
+    }
+    #scoreContainer p{
+        position: absolute;
+        display: block;
+        width : 250px;
+        height :20px;
+        top:50px;
+        left:275px;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+	#scoreContainer h2{
+        position: absolute;
+        display: block;
+        width : 250px;
+        height :20px;
+        top:150px;
+        left:275px;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+</style>
+<header>
+			<div class="I-header">
+				<div class="wrapper">
+					<div class="header-wrapper">
+						<div class="header-logo">
+							<img src="http://localhost:3000/img/bg-log.png">
+							<div class="logo align-justify-center">
+								<a href="/user/home"><img src="http://localhost:3000/logoelearning.png"></a>
+							</div>
+						</div>
+						<div class="header-search align-justify-center lp fp">
+							<div class="search-wrapper">
+								<!--Thử nghiệm chuyển từ thẻ div sang thẻ form-->
+								<form class="search-wrapper" method="POST" action="/user/all-courses/search">
+									<input type="" name="findCourse" placeholder="Tìm kiếm khóa học">
+									<button  type="submit" class="align-justify-center btn btn-primary" ><i class="fas fa-search">Tìm kiếm</i></button>
+									
+								</form>
+							</div>
+						</div>
+						<div class="header-action align-justify-center">
+							
+							<a href="/user/user-profile">{{userInfo.email}}</a>
+							
+							<a href="" class="avatar">
+								{{#if userInfo.linkImg}}
+									<img alt="http://localhost:3000/img/bg-log.png" src="http://localhost:3000/{{userInfo.linkImg}}">
+								{{else }}
+									<img src="http://localhost:3000/img/bg-log.png" >
+									{{/if}}
+							</a>
+							<div class="customer-menu lp">
+								<i class="fas fa-caret-down"></i>
+								<div class="menu-wrapper">
+									<a href="/user/my-class"><i class="fas fa-book"></i>Khóa học của tôi</a>
+									<a href="/user/user-profile"><i class="fas fa-user"></i>Thông tin cá nhân</a>
+									<a href="/user/onprocessing-class"><i class="fas fa-book"></i>Yêu cầu đang xử lý</a>
+									<a href="/user/changePassword"><i class="fas fa-key"></i>Đổi mật khẩu</a>
+									<a href="/history"><i class="fas fa-book"></i>Lịch sử khóa học</a>
+									<a href="/user/logout"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+								</div>
+							</div>
+							<div href="" class="btns sp open-menu"><i class="fas fa-bars"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="I-product">
+				<div class="wrapper">
+					<div class="product-wrapper">
+						<div class="product-header">
+							<a href=""><i class="fas fa-home m-r-5"></i>Trang chủ</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<a href="/user/loged-CourseDetail/{{classId}}">Khóa học</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<a href="">Bài luyện tập {{lessonInfo.lessonName}}</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							
+						</div>
+						<div class="product-body">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+									<div class="product-review">
+										<h2 class="m-b-20" style="color: blue;">{{classInfo.className}} </h2>
+										<p class="m-b-10">Rèn phương pháp, luyện kĩ năng làm mọi dạng bài trong đề thi trên lớp và ôn luyện chuyển cấp </p>
+										<span class="m-b-30">Tiết học: {{lessonInfo.lessonName}} </span><br>
+										<span class="m-b-30">Giáo viên: {{classInfo.className}} </span>
+										<iframe src="https://www.youtube.com/embed/VyLCohX3bFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<div class="product-link">
+											<a href="#description" class="product-link-item">Bài luyện tập</a>
+											
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="product-price">
+										<div class="price-title">
+											Học trọn gói chỉ với
+										</div>
+										<div class="price-cast">
+											<del>800.000đ</del>
+											<div class="price-currency">
+												{{classInfo.classPrice}} đ
+											</div>
+										</div>
+										
+									</div>
+									<div class="product-target">
+										<div class="course-info-description">
+										    <p class="course-info-stitle">Mục tiêu khóa học:</p>
+										    <ul class="course-info-list">
+										        <li>{{classInfo.classDescription}}</li>
+										    </ul>
+										    <p class="course-info-stitle">Cấu trúc khóa học:</p>
+										    <ul class="course-info-list">
+										        
+												<li>Tài liệu</li>
+												<li>Bài giảng</li>
+												<li>Bài luyện tập</li>
+										        
+										    </ul>
+										    <p class="course-info-stitle">Dịch vụ:</p>
+										    <ul class="course-info-list">
+										        <li>Các kênh hỗ trợ học tập trên Facebook</li>
+										        <li>Tổng đài hỗ trợ 0385853267  </li>
+										    </ul>
+										    <p class="course-info-stitle">Thời gian:</p>
+										    <ul class="course-info-list">
+										        <li>Ngày bế giảng: {{classInfo.dayStart}} </li>
+										        <li>Ngày bế giảng: {{classInfo.dayEnd}} </li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row p-30">
+								<div class="container">
+                                    <br>
+                                    <h2 style="font-style: italic;">Các bạn học sinh hãy làm bài luyện tập để nâng cao kỹ năng của mình cho tiết học {{lessonInfo.lessonName}}</h2>
+                                    <br>
+                                    <div class="panel-group">
+                                
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">Làm bài trắc nghiệm luyện tập</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12 text-right">
+                                                    <button type="button" name="button" class="btn btn-success" id="btnStart">
+                                                        Bắt đầu
+                                                    </button>
+													<!--Dùng để hiển thị thanh thời gian-->
+													
+                                                    
+													<div id="timer" style="text-align: right;">
+														<p>Thời gian {{dataTest.time}} phút</p>
+														<p id="experimentTime" style="display: none;">{{dataTest.time}}</p>
+														<div id="counter" style="display: none;"></div>
+														<div id="btimeGauge"></div>
+														<div id="timeGauge"></div>
+													</div>
+                                                </div>
+													<!--Vị trí khu vực hiển thị số điểm-->
+												<div id="scoreContainer" style="display: none"></div>
+
+												<div id="quiz" style="display: none;">
+														<!--Vị trí nêu nội dung câu hỏi-->
+													{{#each userTestResult}}
+														<div class="row" style="margin-left: 10px;">
+															<h5 style="font-weight: bold;">Câu hỏi :{{this.questionContent}}</h5>
+															<br>
+															<fieldset id="{{this.id}}">
+																<div class="radio col-md-12">   
+																	<label><input type="radio" value="A" class="rdOptionA"  name="optradio{{this.id}}"><span class="text-danger">A:</span> {{this.optionA}}</label>
+																</div>
+																<div class="radio col-md-12">
+																	<label><input type="radio" value="B" class="rdOptionB" name="optradio{{this.id}}"><span class="text-danger">B:</span> {{this.optionB}}</label>
+																</div>
+																<div class="radio col-md-12">
+																	<label><input type="radio" value="C" class="rdOptionC" name="optradio{{this.id}}"><span class="text-danger">C:</span> {{this.optionC}}</label>
+																</div>
+																<div class="radio col-md-12">
+																	<label><input type="radio" value="D" class="rdOptionD" name="optradio{{this.id}}"><span class="text-danger">D:</span> {{this.optionD}}</label>
+																</div>
+																<input type="hidden" name="answer" value="{{this.rightAnswer}}">
+															</fieldset>
+															
+															
+														
+														</div>
+														<br>
+													{{/each}}
+													<button type="button" name="button" class="btn btn-outline-success" id="btnFinish">
+															Nộp bài
+													</button>
+												</div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+		    <div class="I-footer">
+		        <div class="footer_contact">
+		            <div class="wrapper">
+		                <div class="row">
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <a href="" class="full_logo">
+		                            <img src="http://localhost:3000/logoelearning.png">
+									
+		                        </a>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Về chúng tôi</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span>Admin : Trần Minh Sơn</span>
+		                                <span><i class="fas fa-phone"></i> <a href="tel:0" class="telephone">(+84) 0385853267</a></span>
+		                                <span><i class="fas fa-envelope"></i> <a href="mailto:" class="time">anhnangphuongmai98@gmail.com</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Danh mục</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span><a href="">*</a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Theo dõi chúng tôi:</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <div class="social_wrapper">
+		                                    <a class="social-item" href="<?php echo $info->fb ?>"><i class="fab fa-facebook-f"></i></a>
+		                                    <a class="social-item" href="<?php echo $info->linkin ?>"><i class="fab fa-linkedin-in"></i></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="copyright">
+		            <div class="wrapper">
+		                <div class="pull-left">
+		                    Copyright © 2021. All rights reserved. 
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</footer>
+		<div class="menu sp">
+			<div class="menu-wrapper">
+				<ul class="main_navigation">
+					<li><a href="">Giới thiệu</a></li>
+					<li><a href="">Giáo viên</a></li>
+					<li><a href="">Danh mục</a></li>
+					<li class="sub_navigation">
+						<a href="">Thư viện</a>
+						<div class="sub_nav_wrapper">
+							<ul>
+								<li><a href="">Sách A</a></li>
+								<li><a href="">Sách B</a></li>
+								<li><a href="">Sách C</a></li>
+								<li><a href="">Sách D</a></li>
+								<li><a href="">Sách R</a></li>
+								<li><a href="">Sách T</a></li>
+							</ul>
+						</div>
+						<div class="open_sub">
+							<i class="fas fa-sort-down"></i>
+						</div>
+					</li>
+					<li><a href="">Phòng thi</a></li>
+					<li><a href="" class="login-button">Đăng nhập</a></li>
+					<li><a href="" class="login-button">Đăng kí</a></li>
+					<p style="display: none;" value="{{lessonTestId}}" id="bonds">{{lessonTestId}}</p>
+				</ul>
+			</div>
+		</div>
+        <script>
+			const start = document.getElementById("btnStart");
+			const quiz = document.getElementById("quiz");
+			//Bổ sung cho phần thanh thời gian
+			const counter = document.getElementById("counter");
+        	const timeGauge = document.getElementById("timeGauge");
+			const finish = document.getElementById("btnFinish");
+			//Khu vực biến hiển thị điểm
+			const scoreDiv = document.getElementById("scoreContainer");
+			
+
+			//Variable for time counter
+			let runningQuestion = 0;
+			let experimentTime = parseInt($("#experimentTime").text());
+			//Thời gian trên hệ thống tính bằng phút
+			let questionTime = experimentTime*60; //10seconds for each questions
+			
+			const gaugeWidth = 150; // 150px
+			let count = 0;
+			const gaugeUnit = gaugeWidth / questionTime;
+			let TIMER;
+			let score = 0;
+
+			//Add event to Start
+			start.addEventListener("click",startQuiz);
+			finish.addEventListener("click",checkAnswer);
+
+			function startQuiz(){
+				start.style.display = "none";
+				quiz.style.display = "block";
+				renderCounter();
+				TIMER = setInterval(renderCounter,1000);
+			}
+			function renderCounter(){
+				if(count <= questionTime){
+					counter.innerHTML = count;
+					timeGauge.style.width = count * gaugeUnit + "px";
+					count++
+				}
+				else{
+					count = 0;
+					clearInterval(TIMER);
+					//chuyển đến vùng xử lý endQuiz để thử nghiệm
+					endQuiz();
+				}
+			}
+			function checkAnswer(){
+				//Lấy được số lượng câu hỏi
+				let listQuestion = document.getElementsByTagName("fieldset");
+				console.log(listQuestion);
+				let numberOfQuestion = listQuestion.length;
+				//So sánh đáp án đã chọn với câu trả lời
+				let rightAnswer = [];
+				let wrongAnswer = [];
+					
+				for(let j = 0 ; j<numberOfQuestion ;j++){
+					//Lấy id của question đó
+					let questionId = listQuestion[j].id;
+					
+					let setOfElement = listQuestion[j].elements;
+					for(let k = 0 ; k<4 ; k++){
+						//Trường hợp chọn 1 trong 4 đáp án
+						if(setOfElement[0].checked!==false||setOfElement[1].checked!==false||setOfElement[2].checked!==false||setOfElement[3].checked!==false){
+							if(setOfElement[k].checked==true){
+								if(setOfElement[k].getAttribute("value")==setOfElement[4].getAttribute("value")){
+									//Đẩy câu trả lời đúng vào mảng right answer
+									rightAnswer.push({questionId:questionId});
+									console.log('check được câu đúng')
+								}
+								else{
+									//Đẩy câu trả lời sai vào mảng wrong answer
+									wrongAnswer.push({questionId:questionId,choosenAnswer:setOfElement[k].getAttribute("value")});
+									
+								}
+							}
+						}
+						else{
+							wrongAnswer.push({questionId:questionId,choosenAnswer:""});
+							break;
+						}
+						
+					}
+				}
+				//console.log(wrongAnswer);
+				//Check thành công được đáp án
+				//Gửi dữ liệu lên server để lưu điểm
+				let numberOfRightAnswer = rightAnswer.length;
+				let numberOfWrongAnswer = wrongAnswer.length;
+				let lessonTestId = document.getElementById("bonds").getAttribute("value");
+				console.log("thông số mã đề testId");
+				
+				
+				
+					$.ajax({
+						url:`http://localhost:3000/user/do-lessontest/processScore/${lessonTestId}`,
+						type:"POST",
+						async:true,
+						data:{
+							numberOfRightAnswer:numberOfRightAnswer,
+							numberOfWrongAnswer:numberOfWrongAnswer,
+							rightAnswer:rightAnswer,
+							wrongAnswer:wrongAnswer
+						},
+						success : function(data){
+							console.log('Gửi thành công');
+						},
+						error:function(e){
+							console.log('Error happens in ajax');
+						}
+					})	
+				
+
+				endQuiz(numberOfRightAnswer,numberOfWrongAnswer);
+			}
+			function endQuiz(numberOfRightAnswer,numberOfWrongAnswer){
+				scoreDiv.style.display = "block";
+				quiz.style.display = "none";
+				scoreDiv.innerHTML = "<p>Số câu đúng "+ numberOfRightAnswer +" </p>"+"<h2>Số câu sai "+ numberOfWrongAnswer +" </h2>";
+				
+			}
+        </script>
+		<script src="https://kit.fontawesome.com/d8162761f2.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/bootstrap3.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/window.js"></script>

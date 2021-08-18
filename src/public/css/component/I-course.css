@@ -1,0 +1,89 @@
+.I-course{
+
+}
+.I-course .course-wrapper{
+	width: 100%;
+	padding: 50px 0;
+}
+.I-course .course-wrapper .course-category{
+	width: 100%;
+}
+.I-course .course-wrapper .course-category .course-category-wrapper{
+	width: 100%;
+}
+.I-course .course-wrapper .course-category .course-category-wrapper .course-category-title{
+	width: 100%;
+	background: #e0e0e0 none repeat scroll 0 0;
+	color: #5c5c5c;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 6px 6px 6px 40px;
+}
+.I-course .course-wrapper .course-category .course-category-wrapper .course-category-item{
+	width: 100%;
+	background: #fff none repeat scroll 0 0;
+	color: #363636;
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 6px 6px 6px 40px;
+}
+.I-course .course-wrapper .course-category .course-category-wrapper .course-category-item:hover{
+	background-color: #2a70b8;
+	color: #fefefe !important;
+}
+.I-course .course-wrapper .course-list-wrapper{
+	width: 100%;
+	margin: 0 0 20px 0;
+}
+.I-course .course-wrapper .course-list-wrapper .course-list-title{
+	background: #2a70b8 none repeat scroll 0 0;
+	color: #fff;
+	display: inline-block;
+	line-height: 29px;
+	min-width: 180px;
+	padding: 0 15px;
+}
+
+.I-course .course-wrapper .course-list-wrapper .course-item{
+	width: 100%;
+	box-shadow: 0px 3px 15px #2c479240;
+	overflow: hidden;
+	margin: 0 0 30px 0;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-image{
+	width: 100%;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-image img{
+	width: 100%;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-body{
+	width: 100%;
+	overflow: hidden;
+	padding: 5px;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-body a.title{
+	font-size: 13px;
+	font-weight: bold;
+	margin: 10px 0;
+	color: #444;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-body p{
+	color: #8d8989;
+	font-size: 12px;
+	margin: 0 0 5px 0;
+}
+.I-course .course-wrapper .course-list-wrapper .course-item .item-body .view{
+	margin: 10px 0;
+	float: right;
+	background: #2a70b8 none repeat scroll 0 0;
+	color: #fefefe;
+	display: inline-block;
+	font-size: 12px;
+	padding: 5px 20px;
+}
+
+
+
+

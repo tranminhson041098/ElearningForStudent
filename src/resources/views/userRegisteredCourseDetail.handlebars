@@ -1,0 +1,349 @@
+<style> 
+        body{
+            font-size: 20px;
+            font-family: monospace;
+        }
+</style>
+<header>
+			<div class="I-header">
+				<div class="wrapper">
+					<div class="header-wrapper">
+						<div class="header-logo">
+							<img src="http://localhost:3000/img/bg-log.png">
+							<div class="logo align-justify-center">
+								<a href="/user/home"><img src="http://localhost:3000/logoelearning.png"></a>
+							</div>
+						</div>
+						<div class="header-search align-justify-center lp fp">
+							<div class="search-wrapper">
+								<!--Thử nghiệm chuyển từ thẻ div sang thẻ form-->
+								<form class="search-wrapper" method="POST" action="/user/all-courses/search">
+									<input type="" name="findCourse" placeholder="Tìm kiếm khóa học">
+									<button  type="submit" class="align-justify-center btn btn-primary" ><i class="fas fa-search">Tìm kiếm</i></button>
+									
+								</form>
+							</div>
+						</div>
+						<div class="header-action align-justify-center">
+							<a href="/user/user-profile">{{userInfo.email}}</a>
+							
+							<a href="" class="avatar">
+								{{#if userInfo.linkImg}}
+									<img alt="http://localhost:3000/img/bg-log.png" src="http://localhost:3000/{{userInfo.linkImg}}">
+								{{else }}
+									<img src="http://localhost:3000/img/bg-log.png" >
+									{{/if}}
+							</a>
+							<div class="customer-menu lp">
+								<i class="fas fa-caret-down"></i>
+								<div class="menu-wrapper">
+									
+									<a href="/user/my-class"><i class="fas fa-book"></i>Khóa học của tôi</a>
+									<a href="/user/user-profile"><i class="fas fa-user"></i>Thông tin cá nhân</a>
+									<a href="/user/onprocessing-class"><i class="fas fa-book"></i>Yêu cầu đang xử lý</a>
+									<a href="/user/changePassword"><i class="fas fa-key"></i>Đổi mật khẩu</a>
+									<a href="/history"><i class="fas fa-book"></i>Lịch sử học</a>
+									<a href="/user/logout"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+								</div>
+							</div>
+							<div href="" class="btns sp open-menu"><i class="fas fa-bars"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="I-product">
+				<div class="wrapper">
+					<div class="product-wrapper">
+						<div class="product-header">
+							<a href="/user/home"><i class="fas fa-home m-r-5"></i>Trang chủ</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<a href="/user/my-class">Khóa học của tôi</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<span>{{dataClassp.className}}</span>
+						</div>
+						<div class="product-body">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+									<div class="product-review">
+										<h2 class="m-b-20" style="color: blue;">{{dataClassp.className}} </h2>
+										<p class="m-b-10">Rèn phương pháp, luyện kĩ năng làm mọi dạng bài trong đề thi vào Đại học và ôn luyện THPT </p>
+										<span class="m-b-30">Giáo viên: {{dataClassp.className}} </span>
+										<iframe id='ytb' src="https://www.youtube.com/embed/VyLCohX3bFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<div class="product-link">
+											<a href="#description" class="product-link-item">Mô tả|</a>
+											<a href="#suggest" class="product-link-item">Hướng dẫn học|</a>
+											<a href="#lesson" class="product-link-item">Bài giảng|</a>
+											<a href="#outline" class="product-link-item">Bài luyện tập|</a>
+											<a href="/history/loginCourse/{{dataClassp.id}}" class="product-link-item">Lịch sử khóa học của bạn</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="product-price">
+										<div class="price-title">
+											Học trọn gói chỉ với
+										</div>
+										<div class="price-cast">
+											<del>800.000đ</del>
+											<div class="price-currency">
+												0đ
+											</div>
+										</div>
+										
+									</div>
+									<div class="product-target">
+										<div class="course-info-description">
+										    
+										    <p class="course-info-stitle">Cấu trúc khóa học:</p>
+										    <ul class="course-info-list">
+										        <li>Tài liệu</li>
+												<li>Bài giảng</li>
+												<li>Bài luyện tập</li>
+										    </ul>
+										    <p class="course-info-stitle">Dịch vụ:</p>
+										    <ul class="course-info-list">
+										        <li>Các kênh hỗ trợ học tập trên Facebook</li>
+										        <li>Tổng đài hỗ trợ 0385853267  </li>
+										    </ul>
+										    <p class="course-info-stitle">Thời gian:</p>
+										    <ul class="course-info-list">
+										        <li>Ngày bế giảng: {{dataClassp.dayStart}} </li>
+										        <li>Ngày bế giảng: {{dataClassp.dayEnd}} </li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row p-30">
+								<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+									<div class="product-description">
+										<h2 id="description">Mô tả khóa học</h2>
+										<p>{{dataClassp.classDescription}}</p>
+										<!-- mô tả khóa học tại dây -->
+									</div>
+									<h2 class="product-stitle">
+				                        <span>Nội dung khóa học</span>
+				                    </h2>
+				                    <div class="product-course">
+				                    	<div id="suggest">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			HƯỚNG DẪN HỌC TRỰC TUYẾN
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+					                    		<div class="product-course-body">
+					                    			<a href="" class="product-course-item">
+					                    				<h5>HƯỚNG DẪN HỌC TRỰC TUYẾN </h5>
+					                    				<p><i class="fas fa-play-circle"></i> Play</p>
+					                    			</a>
+					                    			
+					                    		</div>
+					                    	</div>
+				                    	</div>
+				                    	<div id="lesson">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Bài giảng
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+												{{#each lessonData}}
+															<div name="pna" id="{{this.linkVideo}}">
+																	<a href="#" class="product-course-item" name="{{this.linkVideo}}">
+																		<h5>{{this.lessonName}} </h5>
+																		<p name=""><i class="fas fa-play-circle"></i> Play</p>
+																	</a>
+															</div>
+													
+												{{/each}}
+					                    	</div>
+					                    	
+				                    	</div>
+				                    	<div id="outline">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Bài luyện tập 
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+												{{#each lessonTest}}
+													{{#if this.lessonTestName}}
+														{{#if this.check}}
+															<div class="product-course-body">
+																
+																<a href="/user/do-lessontest/{{this.lessonId}}?codese={{this.numberOfQuestions}}" class="product-course-item">
+																	<h5 style="color: blueviolet; ">Bài luyện tập : {{this.lessonTestName}}  </h5>
+																	<p><i class="fas fa-play-circle"></i> Làm bài</p>
+																</a>
+															</div>
+														{{else }}
+															<div class="product-course-body">
+																
+																<a href="/user/do-lessontest/{{this.lessonId}}?codese={{this.numberOfQuestions}}" class="product-course-item">
+																	<h5>Bài luyện tập : {{this.lessonTestName}}  </h5>
+																	<p><i class="fas fa-play-circle"></i> Làm bài</p>
+																</a>
+															</div>
+															{{/if}}
+
+													{{else }}
+
+														{{/if }}
+												{{/each}}
+					                    	</div>
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Tài liệu
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+												{{#each courseDocument}}
+													<div class="product-course-body">
+														<a href="{{this.documentLink}}" class="product-course-item">
+															<h5>{{this.documentName}}</h5>
+															<p><i class="fas fa-play-circle"></i> Xem</p>
+														</a>
+														
+													</div>
+												{{/each}}
+					                    	</div>
+				                    	</div>
+				                    	
+				                    </div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									
+									<div class="product-relate">
+										<h3>Khóa học liên quan</h3>
+										{{#each dataRelatedClass}}
+											<div class="product-relate-item">
+												<div class="item-image">
+													<img src="http://localhost:3000/{{this.classAvatarImg}}">
+												</div>
+												<div class="item-content">
+													<a href="/user/loged-CourseDetail/{{this.id}}">{{this.className}}</a>
+													<p>Học phí : <b>0 đ</b></p>
+												</div>
+											</div>
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+		    <div class="I-footer">
+		        <div class="footer_contact">
+		            <div class="wrapper">
+		                <div class="row">
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <a href="" class="full_logo">
+		                            <img src="http://localhost:3000/logoelearning.png">
+									
+		                        </a>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Về chúng tôi</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span>Admin : Trần Minh Sơn</span>
+		                                <span><i class="fas fa-phone"></i> <a href="tel:0" class="telephone">(+84) 0385853267</a></span>
+		                                <span><i class="fas fa-envelope"></i> <a href="mailto:" class="time">anhnangphuongmai98@gmail.com</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Danh mục</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span><a href="">*</a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Theo dõi chúng tôi:</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <div class="social_wrapper">
+		                                    <a class="social-item" href="<?php echo $info->fb ?>"><i class="fab fa-facebook-f"></i></a>
+		                                    <a class="social-item" href="<?php echo $info->linkin ?>"><i class="fab fa-linkedin-in"></i></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="copyright">
+		            <div class="wrapper">
+		                <div class="pull-left">
+		                    Copyright © 2021. All rights reserved. 
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</footer>
+		<div class="menu sp">
+			<div class="menu-wrapper">
+				<ul class="main_navigation">
+					<li><a href="">Giới thiệu</a></li>
+					<li><a href="">Giáo viên</a></li>
+					<li><a href="">Danh mục</a></li>
+					<li class="sub_navigation">
+						<a href="">Thư viện</a>
+						<div class="sub_nav_wrapper">
+							<ul>
+								<li><a href="">Sách A</a></li>
+								<li><a href="">Sách B</a></li>
+								<li><a href="">Sách C</a></li>
+								<li><a href="">Sách D</a></li>
+								<li><a href="">Sách R</a></li>
+								<li><a href="">Sách T</a></li>
+							</ul>
+						</div>
+						<div class="open_sub">
+							<i class="fas fa-sort-down"></i>
+						</div>
+					</li>
+					<li><a href="">Phòng thi</a></li>
+					<li><a href="" class="login-button">Đăng nhập</a></li>
+					<li><a href="" class="login-button">Đăng kí</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			$('div[name="pna"]').click(function(event){
+				var videoLink = $(event.currentTarget).attr('id');
+				
+				console.log(videoLink);
+				
+				
+				let ytb = document.getElementById("ytb");
+				console.log(ytb);
+				ytb.setAttribute('src',"https://www.youtube.com/embed/"+videoLink);
+				
+			})
+		</script>
+		<script src="https://kit.fontawesome.com/d8162761f2.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/bootstrap3.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/window.js"></script>

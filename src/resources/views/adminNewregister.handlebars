@@ -1,0 +1,453 @@
+
+<style type="text/css">
+		.checked {
+			color: orange;
+		}
+</style>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top" style="display: flex; justify-content: space-between;">
+
+    <a class="navbar-brand mr-1" href="/admin/home"><h4>HỆ THỐNG HỌC TRỰC TUYẾN</h4></a>
+
+    {{!-- <button style="margin-left: -650px;"class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button> --}}
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#" style="text-align: left;">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <h5 style="color: aliceblue;">Admin</h5>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          
+          <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/changePassword">Đổi mật khẩu</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/admin/logout" data-toggle="modal" data-target="#logoutModal">Đăng xuất</a>
+        </div>
+      </li>  
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Mục lục</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Quản lý học tập</span>
+        </a>
+        <div style="width: 100%" class="dropdown-menu" aria-labelledby="pagesDropdown">
+                  <a class="dropdown-item" href="/admin/manage-courses">Quản lý khóa học</a>
+                  <a class="dropdown-item" href="/admin/manage-category">Quản lý chủ đề</a>
+                  <a class="dropdown-item" href="/admin/manage-newregister">Quản lý đăng ký mới</a>
+        </div>
+      </li>      
+        
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Quản Lý Tài Khoản</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="/admin/manage-students-account">Tài khoản người học</a>
+          <a class="dropdown-item" href="/admin/manage-teachers-account">Tài khoản giáo viên</a>
+          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Cài đặt</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/admin/changePassword">Đổi mật khẩu</a>
+          
+        </div>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/admin/home"> Màn hình chính</a>
+          </li>
+          <li class="breadcrumb-item active">Quản Lý học tập </li>
+            <li class="breadcrumb-item active">Quản lý đăng ký mới</li>
+        </ol>
+
+        
+        </div>
+                <!-- Main content -->
+    <section class="content">
+      <div style="padding:10px" class="row">
+        <div class="col-md-2">
+          <div class="card">
+<!--            <div class="card-header">
+              <h3 class="card-title">Folders</h3>
+            </div>-->
+            <div class="card-header">
+              <h5 class="card-title">Trạng Thái Xử lý</h5>
+
+ 
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                
+                
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-file-alt"></i>Xử lý - phê duyệt
+                    <span class="badge bg-warning float-right">5</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i>Xử lý - từ chối
+                </a>
+                </li>
+ 
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="/admin/manage-newregister" class="nav-link">
+                    <i class="far fa-flag text-danger"></i>
+                    Chưa xử lý
+                    <span class="badge bg-warning float-right">{{waitingNumber}}</span>
+                  </a>
+                </li>             
+
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-10">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h2 class="card-title" style="color: blue;">Danh sách các Đăng ký mới</h2>
+
+              {{!-- <div class="card-tools">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Chọn Môn học</label>
+                  <select name='courseName' class="form-control" id="exampleFormControlSelect1">
+                    {{#each allCourse}}
+                        <option value="{{this.id}}">{{this.courseName}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div> --}}
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                
+                <!-- /.float-right -->
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>STT</th>
+                      <th class=""><h5>Mã đăng ký</h5></th>
+                      <th class=""><h5>Khóa học</h5></th>
+                      <th class="" style=""><h5>Email đăng ký</h5></th>
+                      <th class="" style=""><h5>Địa chỉ</h5></th>
+                      <th class="" style="text-align: center;"><h5>Ngày sinh</h5></th>
+                      <th class="" style="text-align: center;"><h5>Giá</h5></th>
+                      <th class="" style="text-align: center;"><h5>Xử lý</h5></th>
+                    </tr>
+                  </thead>
+                  <tbody id="phumaTakeda">
+                    
+
+                    {{#each dataInvoice}}    
+                      <tr id="{{this.idInvoice}}" name='nameTr'>
+                        <th>{{sum @index 1}}</th>
+                        <td id='blabla'>{{this.idInvoice}}</td>
+                        <td class=""><a href="/admin/manage-class/edit/{{this.classId}}">{{this.className}}</a></td>
+                          <td class=""><a href="/viewUserProfile/{{this.userId}}"><b>{{this.email}}</b></a></td>
+                        <td class="mailbox-name">{{this.address.detailAddress}},{{this.address.district}},{{this.address.province}}</td>
+                        <td class="mailbox-date">{{this.birthday}}</td>
+                        <td class="mailbox-date">{{this.classPrice}} đ</td>
+                        <td style="display: flex;">
+                            <input name='edit' id="btnConfirmRequest" type="button" class="btn btn-outline-success" value="Phê duyệt"></input>
+                            <input name='delete' id="btnDeleteRequest" type="button" class="btn btn-danger" value="Từ chối"></input>
+                        </td>
+                      </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+                <!-- /.table -->
+              </div>
+              <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <div class="float-right">
+                  All
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="http://localhost:3000/admin/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Confirm delete Question-->
+<div id="modalDeleteRequest" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bản có chắc chắn muốn từ chối yêu cầu</p>
+        <p>Chức năng sẽ từ chối yêu cầu của người dùng tới khóa học</p>
+        <p id="hideIdQuestionSecond" style="display: none;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btnSubmitDelete">Từ chối yêu cầu</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+      <p id="hideIdRequestSecond" style="display: none;"></p>
+    </div>
+  </div>
+</div>
+
+<div id="modalAcceptRequest" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bản có chắc chắn chấp nhận yêu cầu</p>
+        <p>Chức năng sẽ chấp nhận yêu cầu của người dùng tới khóa học</p>
+        <p id="hideIdQuestion" style="display: none;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="btnSubmitConfirm">Xác nhận</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+      <p id="hideIdRequest" style="display: none;"></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+      //Xác nhận //Xóa yêu cầu áp dụng event delegation
+      $('#phumaTakeda').click(function(event){
+          if(event.target.name=='edit'){
+              var requestId = $(event.target).closest('tr').attr('id');
+                $('#hideIdRequest').val(requestId);
+                $('#modalAcceptRequest').modal();
+          }
+          if(event.target.name=='delete'){
+            /* 
+                var questionId = $(event.target).closest('tr').attr('id');
+                console.log(questionId);
+              //Lấy dữ liệu từ id câu hỏi
+                $.ajax({
+                  url:`http://localhost:3000/admin/manage-lessonquestion/delete/${questionId}`,
+                  type:'post',
+                  success : function(data){}
+                      
+                })
+            */
+                var requestId = $(event.target).closest('tr').attr('id');
+                $('#hideIdRequestSecond').val(requestId);
+                $('#modalDeleteRequest').modal();
+          }
+      });
+      $('#btnSubmitConfirm').click(function(){
+        console.log('Hello');
+        let idRequest = $('#hideIdRequest').val();
+        
+        $.ajax({
+            url:`http://localhost:3000/admin/manage-newregister/confirm/${idRequest}`,
+            type:'post',
+            
+            success : function(data)
+
+            {
+              
+                  $('#phumaTakeda').empty();
+                  let infoData = data.bla;
+                  console.log(infoData);
+                  for(let j = 0 ; j<infoData.length; j++){
+                    let stt = j+1;
+                    let id = infoData[j].idInvoice;
+                    let className = infoData[j].className;
+                    let userId = infoData[j].userId;
+                    let classId = infoData[j].classId;
+                    let email = infoData[j].email;
+                    let birthday = infoData[j].birthday;
+                    let address = infoData[j].address;
+                    let classPrice = infoData[j].classPrice;
+                    let stringInfo ="";
+                    stringInfo += `<tr id='${id}' name='nameTr'>`;
+                    stringInfo +=`<th>${stt}</th>`;
+                    stringInfo +=`<td id="blabla">${id}</td>`;
+                    stringInfo +=`<td class="mailbox-name"><a href="/admin/manage-class/edit/${classId}">${className}</a></td>`;
+                    stringInfo +=`<td class="mailbox-subject"><a href="/viewUserProfile/${userId}"><b>${email}</b></a> `
+                    stringInfo += "</td>";
+                    stringInfo += `<td class="mailbox-name">${address}}</td>`;
+                    stringInfo += `<td class='mailbox-date'>${birthday}</td><td class='mailbox-date'>${classPrice}đ</td><td style='display: flex;'><input name='edit' id='btnConfirmRequest' type='button' class='btn btn-outline-success' value='Phê duyệt'></input><input name='delete' id='btnDeleteQuestion' type='button' class='btn btn-danger' value='Từ chối'></input></td>`;
+                    stringInfo += "</tr>"
+                    $('#phumaTakeda').append(stringInfo);
+                  }
+              
+                  
+            }
+        })
+        
+          
+          $('#modalDeleteRequest').modal('hide');
+          alert('Bạn đã xác nhận yêu cầu thành công');
+      })
+      //DELETE SUBMIT
+      $('#btnSubmitDelete').click(function(){
+        console.log('Hello');
+        let idRequest = $('#hideIdRequestSecond').val();
+        
+        $.ajax({
+            url:`http://localhost:3000/admin/manage-newregister/delete/${idRequest}`,
+            type:'post',
+            
+            success : function(data)
+
+            {
+              
+                 $('#phumaTakeda').empty();
+                  let infoData = data.bla;
+                  console.log(infoData);
+                  for(let j = 0 ; j<infoData.length; j++){
+                    let stt = j+1;
+                    let id = infoData[j].idInvoice;
+                    let className = infoData[j].className;
+                    let userId = infoData[j].userId;
+                    console.log('userId là' +userId);
+                    let classId = infoData[j].classId;
+                    console.log('classId là' +classId);
+                    let email = infoData[j].email;
+                    let birthday = infoData[j].birthday;
+                    let address = infoData[j].address;
+                    let classPrice = infoData[j].classPrice;
+                    let stringInfo ="";
+                    
+                    stringInfo += `<tr id='${id}' name='nameTr'>`;
+                      stringInfo +=`<th>${stt}</th>`;
+                    stringInfo +=`<td id="blabla">${id}</td>`;
+                    stringInfo +=`<td class="mailbox-name"><a href="/admin/manage-class/edit/${classId}">${className}</a></td>`;
+                    stringInfo +=`<td class="mailbox-subject"><a href="/viewUserProfile/${userId}"><b>${email}</b></a> `
+                    stringInfo += "</td>";
+                    stringInfo += `<td class="mailbox-name">${address}}</td>`;
+                    stringInfo += `<td class='mailbox-date'>${birthday}</td><td class='mailbox-date'>${classPrice}đ</td><td style='display: flex;'><input name='edit' id='btnConfirmRequest' type='button' class='btn btn-outline-success' value='Phê duyệt'></input><input name='delete' id='btnDeleteQuestion' type='button' class='btn btn-danger' value='Từ chối'></input></td>`;
+                    stringInfo += "</tr>"
+                    $('#phumaTakeda').append(stringInfo);
+                  }
+                  
+            }
+        })
+        
+          
+          $('#modalDeleteRequest').modal('hide');
+          alert('Bạn đã xóa yêu cầu thành công');
+      })
+</script>
+  <script src="http://localhost:3000/js/Chart.min.js"></script>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="http://localhost:3000/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:3000/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="http://localhost:3000/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="http://localhost:3000/vendor/chart.js/Chart.min.js"></script>
+    <script src="http://localhost:3000/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="http://localhost:3000/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="http://localhost:3000/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="http://localhost:3000/js/demo/datatables-demo.js"></script>
+    <script src="http://localhost:3000/js/demo/chart-area-demo.js"></script>

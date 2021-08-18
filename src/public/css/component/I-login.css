@@ -1,0 +1,95 @@
+.I-login{
+	width: 100%;
+}
+.I-login .wrapper{
+	width: 100%;
+    min-height: 70vh;
+}
+.I-login .wrapper .login-wrapper{
+	width: 100%;
+	padding: 50px 0;
+	text-align: center;
+}
+.I-login .wrapper .login-wrapper .login-social{
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-login .wrapper .login-wrapper .login-social a{
+	color: #fff;
+	font-weight: bold;
+	padding: 12px 20px 12px 35px;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0 10px 10px 10px;
+	display: flex;
+}
+.I-login .wrapper .login-wrapper .login-social a:hover{
+	color: #fff !important;
+}
+.I-login .wrapper .login-wrapper .login-social a.facebook{
+	background-color: #4267b2 ;
+}
+.I-login .wrapper .login-wrapper .login-social a.google{
+	background-color: #dc4e41 ;
+}
+.I-login .wrapper .login-wrapper .or-detail{
+	position: relative;
+}
+.I-login .wrapper .login-wrapper .or-detail::before{
+	position: absolute;
+	top: 50%;
+	left: 40px;
+	content: "";
+	width: 180px;
+	height: 1px;
+	background-color: #000;
+}
+.I-login .wrapper .login-wrapper .or-detail::after{
+	position: absolute;
+	top: 50%;
+	right: 40px;
+	content: "";
+	width: 180px;
+	height: 1px;
+	background-color: #000;
+}
+.I-login .wrapper .login-wrapper form{
+	padding: 20px 0;
+	width: 100%;
+	margin: auto;
+	max-width: 410px;
+}
+.I-login .wrapper .login-wrapper input{
+	width: 100%;
+	margin-bottom: 0;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #9f978e;
+	border-radius: 4px;
+	outline: none;
+	border: 1px solid #e2e2e2;
+	margin: 0 0 10px 0;
+}
+.I-login .wrapper .login-wrapper button{
+	width: 100%;
+	border: none;
+	font-size: 14px;
+	height: auto;
+	background: #0072bc;
+	line-height: 45px;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+

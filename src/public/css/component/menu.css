@@ -1,0 +1,94 @@
+.menu{
+	position: fixed;
+	top: 65px;
+	left: 100%;
+	width: 100%;
+	height: calc(100vh - 65px);
+	z-index: 999;
+	background-color: #fff;
+	padding: 50px 0;
+	transition: all 200ms ease;
+}
+body.menu-open .menu{
+	left: 0;
+}
+.menu .menu-wrapper{
+	width: 100%;
+	height: 100%;
+}
+
+.menu .menu-wrapper .menu-item{
+	width: 100%;
+	height: 50px;
+}
+
+.menu .menu-wrapper ul.main_navigation{
+
+}
+.menu .menu-wrapper ul.main_navigation.is-open{
+	left: -0%;
+}
+.menu .menu-wrapper ul.main_navigation li{
+	margin: 0 0 10px 0;
+	float: left;
+	height: 40px;
+	width: 100%;
+	padding: 0 40px;
+	overflow: hidden;
+}
+.menu .menu-wrapper ul.main_navigation li.is-open{
+	height: auto;
+}
+.menu .menu-wrapper ul.main_navigation li a{
+	display: block;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	letter-spacing: 1px;
+	padding: 10px 0;
+	color: #444;
+}
+.menu .menu-wrapper ul li.sub_navigation{
+	position: relative;
+}
+.menu .menu-wrapper ul li.sub_navigation .open_sub{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	font-size: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menu .menu-wrapper ul li.sub_navigation .sub_nav_wrapper{
+	position: static;
+	left: 0;
+	padding: 10px;
+	height: 200px;
+	border: none;
+	background-color: #fff;
+	visibility: visible;
+	opacity: 1;
+	transition: all 300ms ease;
+	overflow-y: scroll;
+}
+.menu .menu-wrapper ul li.sub_navigation .sub_nav_wrapper a{
+	width: 150px;
+	display: block;
+	margin: 0 0 10px 0;
+	text-align: left;
+}
+
+.menu .menu-wrapper .login-button{
+	background-color: #0072bc;
+	padding: 0 0 0 50px;
+	color: #fff !important;
+}
+.menu .menu-wrapper .login-button i{
+	margin: 0 10px
+}
+
+
+

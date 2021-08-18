@@ -1,0 +1,266 @@
+.I-review{
+	background-color: #bbfaf3;
+	margin: 0 0 80px 0;
+}
+.I-review .review-head{
+	width: 100%;
+	height: 50px;
+	background-color: #0000004d;
+}
+.I-review .review-main{
+	padding: 20px 0;
+}
+.I-review .review-main .course-wrapper{
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+	padding: 5px 0;
+	max-height: 330px;
+	border-radius: 3px;
+	/*box-shadow: 0px 0px 5px 0px #0000004d;*/
+	margin: 0 0 15px 0;
+}
+.I-review .review-main .course-wrapper .course-item{
+	width: 100%;
+	padding: 0 0 0 20px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+}
+.I-review .review-main .course-wrapper .course-item > a{
+	position: relative;
+	color: #444;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-weight: bold;
+}
+.I-review .review-main .course-wrapper .course-item > a:not(:last-child)::after{
+	position: absolute;
+	top: 10px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	transform: rotate(45deg);
+	background-color: #0072bc;
+	content: "";
+	display: none;
+}
+.I-review .review-main .course-wrapper .course-item:hover{
+	background-color: #eeeef2;
+}
+.I-review .review-main .course-wrapper .course-item .icon{
+	margin: 0 10px 0 0;
+	width: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-review .review-main .course-wrapper .course-item .course-item-list{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background-color: #fff;
+	border-left: 3px solid #0072bc;
+	display: flex;
+	/*box-shadow: 0px 0px 5px 0px #0000004d;*/
+	z-index: 999;
+	display: none;
+}
+.I-review .review-main .course-wrapper .course-item:hover a::after{
+	display: block;
+}
+.I-review .review-main .course-wrapper .course-item:hover .course-item-list{
+	display: flex;
+}
+.I-review .review-main .course-wrapper .course-item .course-main{
+	float: left;
+	width: 765px;
+	border-right: 1px solid #ccc;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-head{
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	height: 60px;
+	padding: 15px 15px 0 15px;
+	display: flex;
+	align-items: flex-end;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-head .tab-control{
+	padding: 10px 15px;
+	border-radius: 5px 5px 0 0;
+	float: left;
+	cursor: pointer;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-head .tab-control.is-active{
+	position: relative;
+	background-color: #0072bc;
+	color: #fff;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-head .tab-control.is-active::before{
+	background-color: #0072bc;
+	width: 10px;
+	height: 10px;
+	transform: rotate(45deg);
+	position: absolute;
+	bottom: -5px;
+	left: calc(50% - 5px);
+	content: "";
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body{
+	width: 100%;
+	padding: 15px;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body{
+	display: none;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-group{
+
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-group .course-group-header{
+	width: 100%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #0072bc;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-group .course-group-body{
+	width: 100%;
+	padding: 0 15px;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-component{
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-component .course-component-header{
+	width: 100%;
+	font-size: 12px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #0072bc;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-component .course-component-body{
+	width: 100%;
+	overflow: hidden;
+}
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body .course-component .course-main-item{
+	float: left;
+	width: 33%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    color: #222;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.I-review .review-main .course-wrapper .course-item .course-main .course-main-body .tab-body.is-active{
+	display: block;
+}
+
+.I-review .review-main .course-wrapper .course-item .course-ads{
+	float: left;
+	width: 385px;
+	padding: 15px;
+}
+.I-review .review-main .course-wrapper .course-item .course-ads img{
+	width: 100%;
+}
+
+.I-review .review-main .review-carousel{
+	width: 100%;
+	height: 330px;
+	background-color: #fff;
+	border-radius: 3px;
+	/*box-shadow: 0px 0px 5px 0px #0000004d;*/
+	margin: 0 0 15px 0;
+}
+
+.I-review .review-main .review-ads{
+	width: 100%;
+	height: 330px;
+	background-color: #fff;
+	border-radius: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	/*box-shadow: 0px 0px 5px 0px #0000004d;*/
+}
+
+.I-review .review-main .review-banner{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 15px 0;
+	box-shadow: 0px 3px 15px #2c479240;
+}
+.I-review .review-main .review-banner .review-banner-wrapper{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-image{
+	width: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+	display: flex;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-image img{
+	width: 100%;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item{
+	float: left;
+	width: 33%;
+	display: flex;
+	align-items: center;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item .banner-image{
+	height: 60px;
+	margin: 0 30px 0 0;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item .banner-image img{
+	height: 100%;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item .banner-title{
+	color: #fff;
+	font-weight: bold;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item .banner-title h2{
+	color: #fff;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	font-size: 26px;
+}
+.I-review .review-main .review-banner .review-banner-wrapper .review-top .banner-item .banner-title p{
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+
+

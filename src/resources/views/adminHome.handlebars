@@ -1,0 +1,247 @@
+
+<style type="text/css">
+		.checked {
+			color: orange;
+		}
+</style>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top" style="display: flex; justify-content: space-between;">
+
+    <a class="navbar-brand mr-1" href="/admin/home"><h4>HỆ THỐNG HỌC TRỰC TUYẾN</h4></a>
+
+    {{!-- <button style="margin-left: -650px;"class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button> --}}
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#" style="text-align: left;">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <h5 style="color: aliceblue;">Admin</h5>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          
+          <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/changePassword">Đổi mật khẩu</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/admin/logout" data-toggle="modal" data-target="#logoutModal">Đăng xuất</a>
+        </div>
+      </li>  
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Mục lục</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Quản lý học tập</span>
+        </a>
+        <div style="width: 100%" class="dropdown-menu" aria-labelledby="pagesDropdown">
+                  <a class="dropdown-item" href="/admin/manage-courses">Quản lý khóa học</a>
+                  <a class="dropdown-item" href="/admin/manage-category">Quản lý chủ đề</a>
+                  <a class="dropdown-item" href="/admin/manage-newregister">Quản lý đăng ký mới</a>
+        </div>
+      </li>      
+        
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Quản Lý Tài Khoản</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="/admin/manage-students-account">Tài khoản người học</a>
+          <a class="dropdown-item" href="/admin/manage-teachers-account">Tài khoản giáo viên</a>
+          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Cài đặt</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+          <a class="dropdown-item" href="/admin/changePassword">Đổi mật khẩu</a>
+          
+        </div>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Quản trị viên</a>
+          </li>
+          <li class="breadcrumb-item active">Giao diện chính</li>
+          
+        </ol>
+
+        <!-- Icon Cards-->
+        <div class="row roulette">
+          <div align="center" class="col-xl col-sm-6 mb-3 "  >
+            <div class="card o-hidden h-100" >
+              <div class="card-body" >
+                <!-- <div class="card-body-icon">
+                  <i class="fas fa-fw fa-comments"></i>
+                </div> -->
+                <img style="width: 200px" src="https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-lotus-book-cartoon-illustration-image_1433452.jpg">
+                <!-- <div>KPI Management</div> -->
+              </div>
+
+            </div>
+            <div class="dropdown" >
+                <button style="width: 100%" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Quản lý học tập
+                </button>
+                <div style="width: 100%" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/admin/manage-courses">Quản lý khóa học</a>
+                  <a class="dropdown-item" href="/admin/manage-category">Quản lý chủ đề</a>
+                  <a class="dropdown-item" href="/admin/manage-newregister">Quản lý đăng ký mới</a>
+                  
+                </div>
+              </div>
+          </div>
+
+          
+          <div align="center" class="col-xl col-sm-6 mb-3 ">
+            <div class="card o-hidden h-100">
+              <div class="card-body">
+                <!-- <div class="card-body-icon">
+                  <i class="fas fa-fw fa-comments"></i>
+                </div> -->
+                <img style="width: 200px" src="data:image/png;base64,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">
+                <!-- <div>KPI Management</div> -->
+              </div>
+
+            </div>
+            <div class="dropdown">
+                <button style="width: 100%" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Quản Lý Tài Khoản
+                </button>
+                <div style="width: 100%" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                   <a class="dropdown-item" href="/admin/manage-students-account">Tài khoản người học</a>
+                    <a class="dropdown-item" href="/admin/manage-teachers-account">Tài khoản giáo viên</a>
+                </div>
+              </div>
+          </div>
+
+
+          <div align="center" class="col-xl col-sm-6 mb-3 ">
+            <div class="card o-hidden h-100">
+              <div class="card-body">
+                <!-- <div class="card-body-icon">
+                  <i class="fas fa-fw fa-comments"></i>
+                </div> -->
+                <img style="width: 200px" src="http://localhost:3000/img/setting.jpg">
+                <!-- <div>KPI Management</div> -->
+              </div>
+
+            </div>
+            <div class="dropdown">
+                <button style="width: 100%" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Cài đặt
+                </button>
+                <div style="width: 100%" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/admin/profile">Hồ sơ cá nhân</a>
+                   <a class="dropdown-item" href="/admin/changePassword">Đổi mật khẩu</a>
+                </di v>
+              </div>
+          </div>
+          
+        
+
+          </div>
+      </div>
+      <!-- /.container-fluid -->
+      
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" >
+          <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close" style="text-align: right;">
+            <span aria-hidden="true" >×</span>
+          </button>
+        </div>
+        <div class="modal-body"><h5>Chọn đăng xuất để kết thúc phiên làm việc</h5></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
+          <a class="btn btn-outline-danger" href="http://localhost:3000/admin/logout">Đăng Xuất</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://localhost:3000/js/Chart.min.js"></script>
+
+    <script type="text/javascript">
+    //doughnut
+    var ctxD = document.getElementById("doughnutChart").getContext('2d');
+    var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+        labels: ["Danger", "Done", "Todo", "Doing"],
+        datasets: [{
+        data: [40, 300, 100, 50],
+        backgroundColor: ["#d9534f", "#5cb85c", "#ffff00", "#428bca"],
+        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5"]
+        }]
+        },
+        options: {
+        responsive: true 
+        }
+    });
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="http://localhost:3000/vendor/jquery/jquery.min.js"></script>
+    <script src="http://localhost:3000/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="http://localhost:3000/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="http://localhost:3000/vendor/chart.js/Chart.min.js"></script>
+    <script src="http://localhost:3000/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="http://localhost:3000/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="http://localhost:3000/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="http://localhost:3000/js/demo/datatables-demo.js"></script>
+    <script src="http://localhost:3000/js/demo/chart-area-demo.js"></script>

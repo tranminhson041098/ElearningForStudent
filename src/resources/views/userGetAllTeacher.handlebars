@@ -1,0 +1,192 @@
+<header>
+			<div class="I-header">
+				<div class="wrapper">
+					<div class="header-wrapper">
+						<div class="header-logo">
+							<img src="http://localhost:3000/img/bg-log.png">
+							<div class="logo align-justify-center">
+								<a href="/user/home"><img src="http://localhost:3000/logoelearning.png"></a>
+							</div>
+						</div>
+						<div class="header-search align-justify-center lp fp">
+							<div class="search-wrapper">
+								<!--Thử nghiệm chuyển từ thẻ div sang thẻ form-->
+								<form class="search-wrapper" method="POST" action="/user/all-courses/search">
+									<input type="" name="findCourse" placeholder="Tìm kiếm khóa học">
+									<button  type="submit" class="align-justify-center btn btn-primary" ><i class="fas fa-search">Tìm kiếm</i></button>
+									
+								</form>
+							</div>
+						</div>
+						<div class="header-action align-justify-center">
+							<a href="/user/user-profile">{{userInfo.email}}</a>
+							
+							<a href="" class="avatar">
+								{{#if userInfo.linkImg}}
+									<img alt="http://localhost:3000/img/bg-log.png" src="http://localhost:3000/{{userInfo.linkImg}}">
+								{{else }}
+									<img src="http://localhost:3000/img/bg-log.png" >
+									{{/if}}
+							</a>
+							<div class="customer-menu lp">
+								<i class="fas fa-caret-down"></i>
+								<div class="menu-wrapper">
+									<a href="/user/my-class"><i class="fas fa-book"></i>Khóa học của tôi</a>
+									<a href="/user/user-profile"><i class="fas fa-user"></i>Thông tin cá nhân</a>
+									<a href="/user/onprocessing-class"><i class="fas fa-book"></i>Yêu cầu đang xử lý</a>
+									<a href="/user/changePassword"><i class="fas fa-key"></i>Đổi mật khẩu</a>
+									<a href="/history"><i class="fas fa-book"></i>Lịch sử khóa học</a>
+									<a href="/user/logout"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+								</div>
+							</div>
+							<div href="" class="btns sp open-menu"><i class="fas fa-bars"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="I-customer">
+				<div class="wrapper">
+					<div class="customer-wrapper">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<div class="customer-nav">
+									<a href="/user/home" class="is-active">Trang chủ</a>
+									<a href="" class="is-active">Thông tin cá nhân</a>
+									<a href="">Khóa học của tôi</a>
+									<a href="">Thông báo</a>
+									<a href="/user/changePassword">Đổi mật khẩu</a>
+                                    <a href="/user/onprocessing-class">Khóa học đang xử lý</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12-col-md-9 col-lg-9">
+								<div class="course-list-wrapper">
+									<div class="course-list-title m-b-10">
+										Các giáo viên hiện đang có trên hệ thống
+									</div>
+									
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Tên giáo viên</th>
+                                                <th scope="col">Địa chỉ email</th>
+                                                <th scope="col">Kinh nghiệm</th>
+                                                <th scope="col">Khóa giảng dạy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each dataTeacher}}
+                                                <tr>
+                                                    <th scope="row">{{sum @index 1}}</th>
+                                                    <td>{{this.name}}</td>
+                                                    <td>{{this.email}}</td>
+                                                    <td>{{this.experience}}</td>
+                                                    <td><a href="/user/getAllTeacher/viewCourse/{{this.id}}">Giảng dạy</a></td>
+                                                </tr>
+                                            {{/each}}
+                                        </tbody>
+                                        </table>
+										
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+		    <div class="I-footer">
+		        <div class="footer_contact">
+		            <div class="wrapper">
+		                <div class="row">
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <a href="" class="full_logo">
+		                            <img src="http://localhost:3000/logoelearning.png">
+									
+		                        </a>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Về chúng tôi</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span>Admin : Trần Minh Sơn</span>
+		                                <span><i class="fas fa-phone"></i> <a href="tel:0" class="telephone">(+84) 0385853267</a></span>
+		                                <span><i class="fas fa-envelope"></i> <a href="mailto:" class="time">anhnangphuongmai98@gmail.com</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Danh mục</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span><a href="">*</a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                                <span><a href=""></a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Theo dõi chúng tôi:</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <div class="social_wrapper">
+		                                    <a class="social-item" href="<?php echo $info->fb ?>"><i class="fab fa-facebook-f"></i></a>
+		                                    <a class="social-item" href="<?php echo $info->linkin ?>"><i class="fab fa-linkedin-in"></i></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="copyright">
+		            <div class="wrapper">
+		                <div class="pull-left">
+		                    Copyright © 2021. All rights reserved. 
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</footer>
+		<div class="menu sp">
+			<div class="menu-wrapper">
+				<ul class="main_navigation">
+					<li><a href="">Giới thiệu</a></li>
+					<li><a href="">Giáo viên</a></li>
+					<li><a href="">Danh mục</a></li>
+					<li class="sub_navigation">
+						<a href="">Thư viện</a>
+						<div class="sub_nav_wrapper">
+							<ul>
+								<li><a href="">Sách A</a></li>
+								<li><a href="">Sách B</a></li>
+								<li><a href="">Sách C</a></li>
+								<li><a href="">Sách D</a></li>
+								<li><a href="">Sách R</a></li>
+								<li><a href="">Sách T</a></li>
+							</ul>
+						</div>
+						<div class="open_sub">
+							<i class="fas fa-sort-down"></i>
+						</div>
+					</li>
+					<li><a href="">Phòng thi</a></li>
+					<li><a href="" class="login-button">Đăng nhập</a></li>
+					<li><a href="" class="login-button">Đăng kí</a></li>
+				</ul>
+			</div>
+		</div>
+		<script src="https://kit.fontawesome.com/d8162761f2.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/bootstrap3.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/window.js"></script>

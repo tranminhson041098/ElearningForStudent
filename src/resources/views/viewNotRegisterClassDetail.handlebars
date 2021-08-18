@@ -1,0 +1,296 @@
+<header>
+			<div class="I-header">
+				<div class="wrapper">
+					<div class="header-wrapper">
+						<div class="header-logo">
+							<img src="http://localhost:3000/img/bg-log.png">
+							<div class="logo align-justify-center">
+								<a href="/user/home"><img src="http://localhost:3000/logoelearning.png"></a>
+							</div>
+						</div>
+						<div class="header-search align-justify-center lp fp">
+							<div class="search-wrapper">
+								<input type="" name="" placeholder="Tìm kiếm khóa học">
+								<a href="" class="align-justify-center"><i class="fas fa-search"></i></a>
+							</div>
+						</div>
+						<div class="header-action align-justify-center">
+							
+							<a href="" class="avatar">
+								{{#if userInfo.linkImg}}
+									<img alt="http://localhost:3000/img/bg-log.png" src="http://localhost:3000/{{userInfo.linkImg}}">
+								{{else }}
+									<img src="http://localhost:3000/img/bg-log.png" >
+									{{/if}}
+							</a>
+							<div class="customer-menu lp">
+								<i class="fas fa-caret-down"></i>
+								<div class="menu-wrapper">
+									<a href="/user/my-class"><i class="fas fa-book"></i>Khóa học của tôi</a>
+									<a href="/user/user-profile"><i class="fas fa-user"></i>Thông tin cá nhân</a>
+									<a href="/user/onprocessing-class"><i class="fas fa-book"></i>Yêu cầu đang xử lý</a>
+									<a href="/user/changePassword"><i class="fas fa-key"></i>Đổi mật khẩu</a>
+									<a href="/history"><i class="fas fa-book"></i>Lịch sử khóa học</a>
+									<a href="/user/logout"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+								</div>
+							</div>
+							<div href="" class="btns sp open-menu"><i class="fas fa-bars"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="I-product">
+				<div class="wrapper">
+					<div class="product-wrapper">
+						<div class="product-header">
+							<a href="/user/home"><i class="fas fa-home m-r-5"></i>Trang chủ</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<a href="">Khóa học</a>
+							<i class="fas fa-chevron-right m-l-10 m-r-10"></i>
+							<span>{{dataClassp.className}}</span>
+						</div>
+						<div class="product-body">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+									<div class="product-review">
+										<h3 class="m-b-20">{{dataClassp.className}} </h3>
+										<p class="m-b-10">Rèn phương pháp, luyện kĩ năng làm mọi dạng bài trong đề thi vào Đại học và ôn luyện THPT </p>
+										<span class="m-b-30">Giáo viên: {{dataClassp.className}} </span>
+										<iframe src="https://www.youtube.com/embed/VyLCohX3bFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<div class="product-link">
+											<a href="#description" class="product-link-item">Mô tả</a>
+											<a href="#lesson" class="product-link-item">Bài giảng</a>
+											<a href="#outline" class="product-link-item">Đề Cương</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="product-price">
+										<div class="price-title">
+											Học trọn gói chỉ với
+										</div>
+										<div class="price-cast">
+											<del>800.000đ</del>
+											<div class="price-currency">
+												0đ
+											</div>
+										</div>
+										<div class="product-trial">
+										</div>
+									</div>
+									<div class="product-target">
+										<div class="course-info-description">
+										    <p class="course-info-stitle">Mục tiêu khóa học:</p>
+										    <ul class="course-info-list">
+										        <li>Rèn phương pháp, luyện kĩ năng làm mọi dạng bài trong đề thi trên lớp và chuyển cấp </li>
+										    </ul>
+										    <p class="course-info-stitle">Cấu trúc khóa học:</p>
+										    <ul class="course-info-list">
+										        <li>Tài liệu</li>
+												<li>Bài giảng</li>
+												<li>Bài luyện tập</li>
+										    </ul>
+										    <p class="course-info-stitle">Dịch vụ:</p>
+										    <ul class="course-info-list">
+										        <li>Các kênh hỗ trợ học tập </li>
+										    </ul>
+										    <p class="course-info-stitle">Thời gian:</p>
+										    <ul class="course-info-list">
+										        <li>Ngày bế giảng: {{dataClassp.dayStart}} </li>
+										        <li>Ngày bế giảng: {{dataClassp.dayEnd}} </li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row p-30">
+								<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+									<div class="product-description">
+										<h2>Mô tả khóa học</h2>
+										<p>{{dataClassp.classDescription}}</p>
+										<!-- mô tả khóa học tại dây -->
+									</div>
+									<h2 class="product-stitle">
+				                        <span>Đề cương khóa học</span>
+				                    </h2>
+				                    <div class="product-course">
+				                    	<div id="description">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			HƯỚNG DẪN HỌC TRỰC TUYẾN
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+					                    		<div class="product-course-body">
+					                    			<a href="" class="product-course-item">
+					                    				<h5>HƯỚNG DẪN HỌC TRỰC TUYẾN </h5>
+					                    				<p><i class="fas fa-play-circle"></i> 4 phút</p>
+					                    			</a>
+					                    			<a href="" class="product-course-item">
+					                    				<h5>HƯỚNG DẪN HỌC TRỰC TUYẾN </h5>
+					                    				<p><i class="fas fa-play-circle"></i> 4 phút</p>
+					                    			</a>
+					                    			<a href="" class="product-course-item">
+					                    				<h5>HƯỚNG DẪN HỌC TRỰC TUYẾN </h5>
+					                    				<p><i class="fas fa-play-circle"></i> 4 phút</p>
+					                    			</a>
+					                    		</div>
+					                    	</div>
+				                    	</div>
+				                    	<div id="lesson">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Bài giảng
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+					                    		<div class="product-course-body">
+                                                    {{#each lessonData}}
+                                                        <a href="#" class="product-course-item">
+                                                            <h5>{{this.lessonName}} </h5>
+                                                            <p><i class="fas fa-play-circle"></i> Play</p>
+                                                        </a>
+                                                    {{/each}}
+					                    			
+					                    		</div>
+					                    	</div>
+					                    	
+				                    	</div>
+				                    	<div id="outline">
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Bài luyện tập
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+					                    		<div class="product-course-body">
+					                    			<a href="" class="product-course-item">
+					                    				<h5>Bài luyện tập</h5>
+					                    				<p><i class="fas fa-play-circle"></i> 4 phút</p>
+					                    			</a>
+					                    			
+					                    		</div>
+					                    	</div>
+					                    	<div class="product-course-component">
+					                    		<div class="product-course-title">
+					                    			Tài liệu
+													<div class="course_sub">
+														<i class="fas fa-caret-down"></i>
+													</div>
+					                    		</div>
+					                    		<div class="product-course-body">
+					                    			<a href="" class="product-course-item">
+					                    				<h5>Tài liệu tham khảo </h5>
+					                    				<p><i class="fas fa-play-circle"></i> 4 phút</p>
+					                    			</a>
+					                    		</div>
+					                    	</div>
+				                    	</div>
+				                    </div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+		    <div class="I-footer">
+		        <div class="footer_contact">
+		            <div class="wrapper">
+		                <div class="row">
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <a href="" class="full_logo">
+		                            <img src="images/2x3.png">
+		                        </a>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Về chúng tôi</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span>Đâu đó ở Hà nội</span>
+		                                <span><i class="fas fa-phone"></i> <a href="tel:0" class="telephone">(+84) 123456789</a></span>
+		                                <span><i class="fas fa-envelope"></i> <a href="mailto:" class="time">abc@gmail.com</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Danh mục</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <span><a href="">Tiểu học</a></span>
+		                                <span><a href="">Trung học cơ sở</a></span>
+		                                <span><a href="">Trung học phổ thông</a></span>
+		                                <span><a href="">Đại học</a></span>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-xs-12 col-xm-12 col-md-6 col-lg-3 col-xl-3">
+		                        <div class="contact_wrapper">
+		                            <div class="contact_title">
+		                                <h5>Theo dõi chúng tôi:</h5>
+		                            </div>
+		                            <div class="contact_content">
+		                                <div class="social_wrapper">
+		                                    <a class="social-item" href="<?php echo $info->fb ?>"><i class="fab fa-facebook-f"></i></a>
+		                                    <a class="social-item" href="<?php echo $info->linkin ?>"><i class="fab fa-linkedin-in"></i></a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="copyright">
+		            <div class="wrapper">
+		                <div class="pull-left">
+		                    Copyright © 2021. All rights reserved. 
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</footer>
+		<div class="menu sp">
+			<div class="menu-wrapper">
+				<ul class="main_navigation">
+					<li><a href="">Giới thiệu</a></li>
+					<li><a href="">Giáo viên</a></li>
+					<li><a href="">Danh mục</a></li>
+					<li class="sub_navigation">
+						<a href="">Thư viện</a>
+						<div class="sub_nav_wrapper">
+							<ul>
+								<li><a href="">Sách A</a></li>
+								<li><a href="">Sách B</a></li>
+								<li><a href="">Sách C</a></li>
+								<li><a href="">Sách D</a></li>
+								<li><a href="">Sách R</a></li>
+								<li><a href="">Sách T</a></li>
+							</ul>
+						</div>
+						<div class="open_sub">
+							<i class="fas fa-sort-down"></i>
+						</div>
+					</li>
+					<li><a href="">Phòng thi</a></li>
+					<li><a href="" class="login-button">Đăng nhập</a></li>
+					<li><a href="" class="login-button">Đăng kí</a></li>
+				</ul>
+			</div>
+		</div>
+		<script src="https://kit.fontawesome.com/d8162761f2.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/bootstrap3.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/js/window.js"></script>
